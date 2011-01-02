@@ -1,0 +1,26 @@
+# NAME
+
+OnlyInsults::Web - My Brand New Module
+
+# SYNOPSIS
+
+  use OnlyInsults::Web;
+
+# DESCRIPTION
+
+OnlyInsults::Web is ...
+
+# AUTHOR
+
+John Napiorkowski L<email:jjnapiork@cpan.org>
+
+# SEE ALSO
+
+    TBD
+
+# COPYRIGHT & LICENSE
+
+Copyright 2011, John Napiorkowski
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
