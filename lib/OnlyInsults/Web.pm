@@ -1,33 +1,42 @@
 package OnlyInsults::Web;
 
-use 5.008008;
-use strict;
-use warnings FATAL =>'all';
+use Moose;
+use namespace::autoclean;
 
+use Catalyst::Runtime 5.80;
+use Catalyst qw/
+    -Debug
+    ConfigLoader
+    Static::Simple
+/;
+
+extends 'Catalyst';
 our $VERSION = '0.01';
 
-1;
+has 'debug_panels' => (is=>'ro', required=>1, isa=>'ArrayRef');
+
+__PACKAGE__->setup();
 
 =head1 NAME
 
-OnlyInsults::Web - Root web application for "http://onlyinsults.com/"
+OnlyInsults::Web - A website dedicated to insulting and fun 
 
 =head1 SYNOPSIS
 
-  use OnlyInsults::Web;
+    script/onlyinsults_web_server.pl
 
 =head1 DESCRIPTION
 
-OnlyInsults::Web is ...
+    TBD
 
 =head1 AUTHOR
 
-John Napiorkowski L<email:jjnapiork@cpan.org>
+See L<OnlyInsults> for AUTHOR information
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2011, John Napiorkowski
-
-Proprietary License - All Rights Reserve
+See L<OnlyInsults> for COPYRIGHT & LICENSE information
 
 =cut
+
+1;

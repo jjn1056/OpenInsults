@@ -10,6 +10,7 @@ my @core = (
   'Plack' => '0.9960',
   'Plack::Middleware::Debug' => '0.10',
   'Plack::Middleware::Debug::DBIC::QueryLog' => '0.05',
+  'Starman' => '0.2007',
   'Catalyst::Runtime' => '5.80029',
   'Catalyst::Engine::PSGI' => '0.11',
 );

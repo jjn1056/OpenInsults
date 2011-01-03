@@ -1,26 +1,17 @@
 # NAME
 
-OnlyInsults::Web - My Brand New Module
-
-# SYNOPSIS
-
-  use OnlyInsults::Web;
+OnlyInsults - Applications for The "onlyinsults.com" website
 
 # DESCRIPTION
 
-OnlyInsults::Web is ...
+Top level namespace for applications and utilties for the "onlyinsults.com"
+website.  Documentation summary follows.
 
 # AUTHOR
 
-John Napiorkowski L<email:jjnapiork@cpan.org>
-
-# SEE ALSO
-
-    TBD
+    John Napiorkowski L<email:jjnapiork@cpan.org>
 
 # COPYRIGHT & LICENSE
 
-Copyright 2011, John Napiorkowski
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+    Copyright 2011, John Napiorkowski
+    Proprietary License - All Rights Reserve
