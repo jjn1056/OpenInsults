@@ -1,11 +1,11 @@
 BEGIN {
   my @modules = qw(
     ReadmeMarkdownFromPod
-	  ManifestSkip
-	  AutoLicense
-	  Repository
+	ManifestSkip
+    AutoLicense
+    Repository
     Homepage
-	  AutoManifest
+    AutoManifest
   );
   for my $module (@modules) {
     eval "use Module::Install::$module; 1"
