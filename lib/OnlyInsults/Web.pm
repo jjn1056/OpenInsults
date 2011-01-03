@@ -13,8 +13,6 @@ use Catalyst qw/
 extends 'Catalyst';
 our $VERSION = '0.01';
 
-has 'debug_panels' => (is=>'ro', required=>1, isa=>'ArrayRef');
-
 __PACKAGE__->setup();
 
 =head1 NAME
