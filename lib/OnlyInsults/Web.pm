@@ -1,16 +1,14 @@
 package OnlyInsults::Web;
 
+our $VERSION = '0.01';
+
 use Moose;
-use namespace::autoclean;
-use Catalyst::Runtime 5.80;
 use Catalyst qw/
     -Debug
     ConfigLoader
 /;
 
 extends 'Catalyst';
-
-our $VERSION = '0.01';
 
 __PACKAGE__->setup;
 

@@ -4,9 +4,13 @@ use strict;
 use warnings FATAL =>'all';
 use inc::Module::Install;
 
-requires 'Web::Simple';
-requires 'Plack' => '0.9962',
-requires 'Plack::Middleware::Debug' => '0.10';
+requires 'Moose';
+requires 'Plack';
+requires 'Plack::Middleware::Debug';
+requires 'CatalystX::Declare';
+requires 'Catalyst::Runtime';
+requires 'Catalyst::Plugin::ConfigLoader';
+requires 'Catalyst::Action::RenderView';
 
 test_requires 'Test::Most' => '0.23';
 

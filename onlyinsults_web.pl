@@ -1,10 +1,15 @@
 {
   debug_panels => [qw(
+    Timer
     CatalystLog
     DBITrace
+    Response
     Environment
     Memory
-    Parameters
-    Response
   )],
 };
+
+__END__
+
+    Parameters
+
