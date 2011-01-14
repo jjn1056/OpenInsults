@@ -1,6 +1,6 @@
 use CatalystX::Declare;
-controller OnlyInsults::Web::Controller::Root 
-{
+namespace OnlyInsults::Web::Controller;
+controller ::Root {
   action global_start under '/' as '';
   under global_start {
     final action welcome as '' {

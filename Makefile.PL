@@ -4,6 +4,7 @@ use strict;
 use warnings FATAL =>'all';
 use inc::Module::Install;
 
+license 'restricted';
 requires 'Moose';
 requires 'Plack';
 requires 'Plack::Middleware::Debug';

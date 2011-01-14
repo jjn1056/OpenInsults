@@ -2,7 +2,6 @@ BEGIN {
   my @modules = qw(
     ReadmeMarkdownFromPod
 	ManifestSkip
-    AutoLicense
     Repository
     Homepage
     AutoManifest
@@ -31,7 +30,6 @@ ERR
 
 readme_markdown_from_pod;
 manifest_skip;
-auto_license;
 auto_set_repository;
 auto_set_homepage;
 auto_manifest;

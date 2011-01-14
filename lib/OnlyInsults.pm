@@ -23,7 +23,7 @@ website.  Documentation summary follows.
 
 =head1 COPYRIGHT & LICENSE
 
-    Copyright 2011, John Napiorkowski
-    Proprietary License - All Rights Reserve
+    Copyright 2011, John Napiorkowski, All Rights Reserved
+    This is restricted code not for distribution.
 
 =cut
