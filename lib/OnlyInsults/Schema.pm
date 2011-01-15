@@ -1,7 +1,9 @@
 package OnlyInsults::Schema;
 use parent 'DBIx::Class::Schema';
 
-__PACKAGE__->load_namespaces(default_resultset_class => 'DefaultRS');
+__PACKAGE__->load_namespaces(
+  default_resultset_class => 'DefaultRS',
+);
 
 1;
 

@@ -3,18 +3,18 @@ use parent 'OnlyInsults::Schema::Result';
 
 __PACKAGE__->table('role');
 __PACKAGE__->add_columns(
-    role_id => {
-        data_type => 'varchar',
-        size => '36',
-    },
-    title => {
-        data_type => 'varchar',
-        size => '24',
-    },
-    description => {
-        data_type => 'varchar',
-        size => '64',
-    },
+  role_id => {
+    data_type => 'varchar',
+    size => '36',
+  },
+  title => {
+    data_type => 'varchar',
+    size => '24',
+  },
+  description => {
+    data_type => 'varchar',
+    size => '64',
+  },
 );
 
 __PACKAGE__->set_primary_key('role_id');

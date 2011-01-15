@@ -2,10 +2,10 @@ package OnlyInsults::Schema::Result::UserRole;
 use parent 'OnlyInsults::Schema::Result';
 
  __PACKAGE__->join_table({
-    left_class   => 'User',
-    left_method  => 'user',
-    right_class  => 'Role',
-    right_method => 'role',
+  left_class   => 'User',
+  left_method  => 'user',
+  right_class  => 'Role',
+  right_method => 'role',
 });
 
 1;

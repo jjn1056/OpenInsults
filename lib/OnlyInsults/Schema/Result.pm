@@ -3,22 +3,22 @@ use parent 'DBIx::Class::Core';
 use UUID::Tiny ':std';
 
 __PACKAGE__->load_components(qw/
-    Helper::Row::NumifyGet
-    Helper::Row::JoinTable
-    Helper::Row::OnColumnChange
-    Helper::Row::StorageValues
-    DynamicDefault
-    TimeStamp
-    InflateColumn::DateTime
+  Helper::Row::NumifyGet
+  Helper::Row::JoinTable
+  Helper::Row::OnColumnChange
+  Helper::Row::StorageValues
+  DynamicDefault
+  TimeStamp
+  InflateColumn::DateTime
 /);
 
 sub insert {
-    my $self = shift;
-    for my $column ($self->primary_columns) {
-        $self->store_column($column, create_uuid_as_string())
-          unless defined $self->get_column($column);
-    }
-    $self->next::method(@_);
+  my $self = shift;
+  for my $column ($self->primary_columns) {
+    $self->store_column($column, create_uuid_as_string())
+      unless defined $self->get_column($column);
+  }
+  $self->next::method(@_);
 }
 
 1;
