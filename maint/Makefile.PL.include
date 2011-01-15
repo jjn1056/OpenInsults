@@ -40,4 +40,8 @@ distclean :: manifest_skip_clean
 
 manifest_skip_clean:
 \t\$(RM_F) MANIFEST.SKIP
+
+update_deps :
+\tcpan-outdated -p | cpanm
+
 EOP

@@ -8,7 +8,7 @@ use OnlyInsults::Web;
 OnlyInsults::Web->setup_engine('PSGI');
 
 ok (
-  my$app = builder {
+  my $app = builder {
     enable 'StackTrace';
     enable 'Debug', panels => OnlyInsults::Web->config->{debug_panels};
     sub { OnlyInsults::Web->run(@_) };

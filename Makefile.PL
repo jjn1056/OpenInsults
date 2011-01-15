@@ -5,13 +5,22 @@ use warnings FATAL =>'all';
 use inc::Module::Install;
 
 license 'restricted';
+requires 'parent';
 requires 'Moose';
 requires 'Plack';
+requires 'DBIx::Class';
+requires 'DBIx::Class::Helpers';
+requires 'DBIx::Class::DynamicDefault';
+requires 'DBIx::Class::TimeStamp';
+requires 'DBIx::Class::QueryLog';
+requires 'Plack::Middleware::Debug::DBIC::QueryLog';
 requires 'Plack::Middleware::Debug';
 requires 'CatalystX::Declare';
 requires 'Catalyst::Runtime';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Action::RenderView';
+requires 'Catalyst::Model::DBIC::Schema';
+requires 'Catalyst::TraitFor::Model::DBIC::Schema::QueryLog::AdoptPlack';
 
 test_requires 'Test::Most' => '0.23';
 test_requires 'Test::LeakTrace';
