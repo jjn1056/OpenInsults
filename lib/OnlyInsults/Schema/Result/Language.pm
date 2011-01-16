@@ -26,6 +26,7 @@ unique_constraint ['code_alpha2'];
 unique_constraint ['code_alpha3'];
 
 has_many tags => ('OnlyInsults::Schema::Result::Tag', 'tag_id');
+has_many videos => ('OnlyInsults::Schema::Result::Tag', 'video_id');
 
 1;
 
@@ -48,13 +49,13 @@ These are the fields in this source
 
 Primary key used to identify a language for internal use.
 
-=head2 language_id
+=head2 code_alpha2
 
-FK to the Language table.  It is the language that the language is in.
+two letter language code
 
-=head2 name
+=head2 code_alpha3
 
-Language name
+three letter language code.
 
 =head1 METHODS
 

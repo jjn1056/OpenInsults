@@ -59,7 +59,7 @@ FK to the Language table.  It is the language that the tag is in.
 
 =head2 name
 
-Tag name
+Tag name that is associated with a given video.
 
 =head1 METHODS
 

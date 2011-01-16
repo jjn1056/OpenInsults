@@ -10,6 +10,11 @@ column video_id => {
   size => '36',
 };
 
+column language_id => {
+  data_type => 'varchar',
+  size => '36',
+};
+
 column title => {
   data_type => 'varchar',
   size => '24',
@@ -38,6 +43,11 @@ many_to_many subjects => ('video_subjects_rs', 'subject');
 has_many video_tags_rs => ('OnlyInsults::Schema::Result::VideoTag', 'tag_id');
 many_to_many tags => ('video_tags_rs', 'tag');
 
+has_many video_sources_rs => ('OnlyInsults::Schema::Result::VideoTag', 'tag_id');
+many_to_many sources => ('video_tags_rs', 'tag');
+
+belongs_to language => ('OnlyInsults::Schema::Result::Language', 'language_id');
+
 1;
 
 =head1 NAME
@@ -56,6 +66,10 @@ These are the fields in this source
 
 Primary key for the source.
 
+=head2 language_id
+
+FK to the language table.
+
 =head2 title
 
 =head2 description
@@ -67,6 +81,13 @@ A date that is associated with the video
 =head1 METHODS
 
 This package defines the following methods.
+
+=head1 TODO
+
+    * Do we need 'coverage' or 'location'?
+    * What if anything should 'date' mean?
+    * should title/desc be m2m with language ids?
+    * should m2m have required 'primary' value?
 
 =head1 AUTHOR
 
