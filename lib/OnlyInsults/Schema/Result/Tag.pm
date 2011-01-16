@@ -30,6 +30,8 @@ primary_key 'tag_id';
 has_many videos_tag_rs => ('OnlyInsults::Schema::Result::VideoTag', 'video_id');
 many_to_many videos => ('videos_tag_rs', 'video');
 
+belongs_to language => ('OnlyInsults::Schema::Result::Language', 'language_id');
+
 1;
 
 =head1 NAME

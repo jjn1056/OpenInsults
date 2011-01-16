@@ -10,7 +10,7 @@ SQL::Translator->new(
   },
   to => 'GraphViz',
   producer_args => {
-    out_file => OnlyInsults::Web->path_to('etc','docs','schema.png'),
+    out_file => OnlyInsults::Web->path_to('share','docs','schema.png'),
     width => 16.0,
     height => 11.1,
     pagewidth => 16.2,
