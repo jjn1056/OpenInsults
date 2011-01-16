@@ -10,6 +10,14 @@ use Catalyst qw/
 
 extends 'Catalyst';
 
+__PACKAGE__->config(
+  name => 'OnlyInsults::Web',
+  disable_component_resolution_regex_fallback => 1,    
+  'Plugin::ConfigLoader' => {
+	file => __PACKAGE__->path_to("share/etc/"),
+  },
+);
+
 __PACKAGE__->setup;
 
 =head1 NAME
