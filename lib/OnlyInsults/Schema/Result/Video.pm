@@ -25,6 +25,10 @@ column description => {
   size => '64',
 };
 
+column transcript => {
+  data_type => 'text',
+};
+
 column date => {
   data_type => 'datetime',
 };
@@ -73,6 +77,13 @@ FK to the language table.
 =head2 title
 
 =head2 description
+
+=head2 transcript
+
+a textual representation of the words used in the video.
+
+  * Hash tags are automatically extracted.
+  
 
 =head2 date
 

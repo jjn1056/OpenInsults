@@ -15,7 +15,7 @@ column language_id => {
   size => '36',
 };
 
-column name => {
+column term => {
   data_type => 'varchar',
   size => '40',
 };
@@ -26,6 +26,7 @@ column created => {
 };
 
 primary_key 'tag_id';
+unique_constraint ['term'];
 
 has_many videos_tag_rs => ('OnlyInsults::Schema::Result::VideoTag', 'video_id');
 many_to_many videos => ('videos_tag_rs', 'video');
@@ -57,9 +58,11 @@ Primary key used to identify a tag for internal use.
 
 FK to the Language table.  It is the language that the tag is in.
 
-=head2 name
+=head2 term
 
 Tag name that is associated with a given video.
+
+    * TODO: What about machine tags?
 
 =head1 METHODS
 
