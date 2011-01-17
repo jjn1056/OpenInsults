@@ -12,7 +12,7 @@ sub as_hri {
   (shift)->
   search({}, {
 	result_class => 'DBIx::Class::ResultClass::HashRefInflator',
-  });
+  })->all;
 }
 
 1;

@@ -1,26 +1,33 @@
 package OnlyInsults::Schema::Result::User;
-use parent 'OnlyInsults::Schema::Result';
 
-__PACKAGE__->table('user');
-__PACKAGE__->add_columns(
-  user_id => {
-    data_type => 'varchar',
-    size => '36',
-  },
-  email => {
-    data_type => 'varchar',
-    size => '96',
-  },
-  created => {
-    data_type => 'datetime', 
-    set_on_create => 1,
-    set_on_update => 1,
-  },
-);
-__PACKAGE__->set_primary_key('user_id');
-__PACKAGE__->add_unique_constraint(['email']);
-__PACKAGE__->has_many(user_roles_rs => 'OnlyInsults::Schema::Result::UserRole', 'user_id');
-__PACKAGE__->many_to_many('roles', 'user_roles_rs', 'role');
+use OnlyInsults::Schema::Result;
+use DBIx::Class::Candy
+  -base => 'OnlyInsults::Schema::Result';
+
+table 'user';
+
+column 'user_id' => {
+  data_type => 'varchar',
+  size => '36',
+};
+
+column 'email' => {
+  data_type => 'varchar',
+  size => '96',
+};
+
+column 'created' => {
+  data_type => 'datetime', 
+  set_on_create => 1,
+  set_on_update => 1,
+};
+
+primary_key 'user_id';
+
+unique_constraint ['email'];
+
+has_many user_roles_rs => ('OnlyInsults::Schema::Result::UserRole', 'user_id');
+many_to_many roles => ('user_roles_rs', 'role');
 
 1;
 

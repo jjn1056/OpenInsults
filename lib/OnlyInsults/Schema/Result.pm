@@ -1,6 +1,18 @@
 package OnlyInsults::Schema::Result;
 use parent 'DBIx::Class::Core';
+
 use UUID::Tiny ':std';
+use Try::Tiny ();
+use Method::Signatures::Simple ();
+
+sub import {
+  my ($package) = @_;
+  my $caller = caller;
+  strict->import;
+  warnings->import(FATAL => 'all');
+  Try::Tiny->export_to_level(1, @_);
+  Method::Signatures::Simple->import(into=>$caller);
+}
 
 __PACKAGE__->load_components(qw/
   Helper::Row::NumifyGet
