@@ -26,7 +26,7 @@ unique_constraint ['code_alpha2'];
 unique_constraint ['code_alpha3'];
 
 has_many tags => ('OnlyInsults::Schema::Result::Tag', 'tag_id');
-has_many videos => ('OnlyInsults::Schema::Result::Tag', 'video_id');
+has_many videos => ('OnlyInsults::Schema::Result::Video', 'video_id');
 
 1;
 

@@ -88,6 +88,7 @@ This package defines the following methods.
     * What if anything should 'date' mean?
     * should title/desc be m2m with language ids?
     * should m2m have required 'primary' value?
+      for example primary_source_id, primary_tag_id
 
 =head1 AUTHOR
 
