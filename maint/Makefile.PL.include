@@ -1,13 +1,15 @@
 BEGIN {
   my @modules = qw(
-    ReadmeMarkdownFromPod
-	ManifestSkip
-    Repository
-    Homepage
-    AutoManifest
+    ::ReadmeMarkdownFromPod
+	::ManifestSkip
+	::Repository
+	::Homepage
+	::AutoManifest
+	App::cpanoutdated
   );
   for my $module (@modules) {
-    eval "use Module::Install::$module; 1"
+    $module = $module =~/^\:\:/ ? "Module::Install$module" : $module;
+    eval "use $module; 1"
 	  || die <<"ERR";
 
 You are in author mode but are missing Module::Install::$module
