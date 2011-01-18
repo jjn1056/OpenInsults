@@ -1,14 +1,34 @@
 package OnlyInsults::Schema::Result::UserRole;
-use parent 'OnlyInsults::Schema::Result';
 
- __PACKAGE__->join_table({
+use DBIx::Class::Candy
+  -base => 'OnlyInsults::Schema::Result';
+
+table 'user_role';
+
+column 'user_id' => {
+  data_type => 'varchar',
+  size => '36',
+};
+
+column 'role_id' => {
+  data_type => 'varchar',
+  size => '36',
+};
+
+primary_key 'user_id', 'role_id';
+belongs_to user => ('OnlyInsults::Schema::Result::User', 'user_id');
+belongs_to role => ('OnlyInsults::Schema::Result::Role', 'role_id');
+
+1;
+
+__END__
+
+join_table {
   left_class   => 'User',
   left_method  => 'user',
   right_class  => 'Role',
   right_method => 'role',
-});
-
-1;
+};
 
 =head1 NAME
 

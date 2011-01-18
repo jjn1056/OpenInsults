@@ -22,11 +22,16 @@ column title => {
 
 column description => {
   data_type => 'varchar',
-  size => '64',
+  size => '140',
 };
 
 column transcript => {
   data_type => 'text',
+};
+
+column status_id => {
+  data_type => 'varchar',
+  size => '36',
 };
 
 column date => {
@@ -51,6 +56,7 @@ has_many video_sources_rs => ('OnlyInsults::Schema::Result::VideoTag', 'tag_id')
 many_to_many sources => ('video_tags_rs', 'tag');
 
 belongs_to language => ('OnlyInsults::Schema::Result::Language', 'language_id');
+belongs_to status => ('OnlyInsults::Schema::Result::Status', 'status_id');
 
 1;
 
@@ -78,16 +84,20 @@ FK to the language table.
 
 =head2 description
 
+What the video is about.  Allows links bit converted to bitly.
+
+  * supports Hash and @ tags (like tweets)
+
 =head2 transcript
 
 a textual representation of the words used in the video.
 
   * Hash tags are automatically extracted.
-  
 
 =head2 date
 
-A date that is associated with the video
+A date that is associated with the video.  For our purposes this will be the 
+date the video was made available for the first time on our website.
 
 =head1 METHODS
 
@@ -95,9 +105,18 @@ This package defines the following methods.
 
 =head1 TODO
 
-    * Do we need 'coverage' or 'location'?
-    * What if anything should 'date' mean?
+    * maybe 'Availability' isn't really the best way to describe this
+    * Do we need 'coverage' or 'location' (spacial or temporal coverage?
+    * work out rating system (for friendly thru adult viewers)
+    * Work out commenting system
+    * add all the generated / discovered metadata, such as size, length,
+      thumbnail(s), etc.
+    * Work out what to do with 'relation', perhaps this is a good way to group
+      insults together (like 'is-reply-to', etc.)
     * should title/desc be m2m with language ids?
+    * availability might need to be m2m
+    * at some point need to think about 'rights' and 'visibility'.  For example
+      maybe we could allow insults that only friends can see...
     * should m2m have required 'primary' value?
       for example primary_source_id, primary_tag_id
 

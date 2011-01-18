@@ -32,7 +32,8 @@ OnlyInsults::Schema::Result::Subject - Information about a video subject
 
 =head1 DESCRIPTION
 
-Subject is a controlled list of terms used to categorize videos.
+Subject is a controlled list of terms used to categorize videos.  In various
+metadata systems this can also be known as category.
 
 =head1 COLUMNS
 

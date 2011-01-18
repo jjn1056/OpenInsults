@@ -8,6 +8,7 @@ license 'restricted';
 requires 'parent';
 requires 'Moose';
 requires 'Plack';
+requires 'Locale::Codes';
 requires 'DBIx::Class';
 requires 'DBIx::Class::Helpers';
 requires 'DBIx::Class::DynamicDefault';

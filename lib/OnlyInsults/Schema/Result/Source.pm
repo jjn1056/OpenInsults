@@ -10,6 +10,11 @@ column source_id => {
   size => '36',
 };
 
+column uri => {
+  data_type => 'varchar',
+  size => '196',
+};
+
 column note => {
   data_type => 'text',
 };
@@ -36,6 +41,10 @@ These are the fields in this source
 =head2 source_id
 
 Primary key used to identify a source for internal use.
+
+=head2 uri
+
+URL/URI associated with the creator.
 
 =head2 note
 

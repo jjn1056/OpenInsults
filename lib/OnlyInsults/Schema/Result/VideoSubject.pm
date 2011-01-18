@@ -3,12 +3,21 @@ package OnlyInsults::Schema::Result::VideoSubject;
 use DBIx::Class::Candy
   -base => 'OnlyInsults::Schema::Result';
 
-join_table {
-  left_class   => 'Video',
-  left_method  => 'video',
-  right_class  => 'Subject',
-  right_method => 'subject',
+table 'video_subject';
+
+column 'video_id' => {
+  data_type => 'varchar',
+  size => '36',
 };
+
+column 'subject_id' => {
+  data_type => 'varchar',
+  size => '36',
+};
+
+primary_key 'video_id', 'subject_id';
+belongs_to video => ('OnlyInsults::Schema::Result::Video', 'video_id');
+belongs_to subject => ('OnlyInsults::Schema::Result::Subject', 'subject_id');
 
 1;
 

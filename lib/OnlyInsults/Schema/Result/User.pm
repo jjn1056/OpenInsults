@@ -1,6 +1,5 @@
 package OnlyInsults::Schema::Result::User;
 
-use OnlyInsults::Schema::Result;
 use DBIx::Class::Candy
   -base => 'OnlyInsults::Schema::Result';
 

@@ -15,15 +15,9 @@ column code_alpha2 => {
   size => '2',
 };
 
-column code_alpha3 => {
-  data_type => 'char',
-  size => '3',
-};
-
 primary_key 'language_id';
 
 unique_constraint ['code_alpha2'];
-unique_constraint ['code_alpha3'];
 
 has_many tags => ('OnlyInsults::Schema::Result::Tag', 'tag_id');
 has_many videos => ('OnlyInsults::Schema::Result::Video', 'video_id');
@@ -52,10 +46,6 @@ Primary key used to identify a language for internal use.
 =head2 code_alpha2
 
 two letter language code
-
-=head2 code_alpha3
-
-three letter language code.
 
 =head1 METHODS
 

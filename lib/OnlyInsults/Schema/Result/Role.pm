@@ -1,25 +1,32 @@
 package OnlyInsults::Schema::Result::Role;
-use parent 'OnlyInsults::Schema::Result';
 
-__PACKAGE__->table('role');
-__PACKAGE__->add_columns(
-  role_id => {
-    data_type => 'varchar',
-    size => '36',
-  },
-  title => {
-    data_type => 'varchar',
-    size => '24',
-  },
-  description => {
-    data_type => 'varchar',
-    size => '64',
-  },
-);
+use DBIx::Class::Candy
+  -base => 'OnlyInsults::Schema::Result';
 
-__PACKAGE__->set_primary_key('role_id');
-__PACKAGE__->add_unique_constraints(['title'], ['description']);
-__PACKAGE__->has_many(role_users_rs => 'OnlyInsults::Schema::Result::UserRole', 'role_id');
+table 'role';
+
+column 'role_id' => {
+  data_type => 'varchar',
+  size => '36',
+};
+
+column 'title' => {
+  data_type => 'varchar',
+  size => '24',
+};
+
+column 'description' => {
+  data_type => 'varchar',
+  size => '64',
+};
+
+primary_key 'role_id';
+
+unique_constraint ['title'];
+unique_constraint ['description'];
+
+has_many 'users_role_rs' => ('OnlyInsults::Schema::Result::UserRole', 'role_id');
+many_to_many users => ('users_role_rs', 'user');
 
 1;
 

@@ -17,6 +17,19 @@ OnlyInsults - Applications for The "onlyinsults.com" website
 Top level namespace for applications and utilties for the "onlyinsults.com"
 website.  Documentation summary follows.
 
+head1 TODO
+
+Rough list of ideas.  Should also look around TODOs in specific POD files, such
+as in the schemas.
+
+    * playlists
+    * channels
+    * ability to deep link into a video 'seek' to particular words.
+    * pick up locations from user
+    * what type of news section do we need?
+    * user forums?
+    * any othose type of structured or semi structured information?
+
 =head1 AUTHOR
 
     John Napiorkowski L<email:jjnapiork@cpan.org>
