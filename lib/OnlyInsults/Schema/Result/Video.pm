@@ -55,6 +55,9 @@ many_to_many tags => ('video_tags_rs', 'tag');
 has_many video_sources_rs => ('OnlyInsults::Schema::Result::VideoTag', 'tag_id');
 many_to_many sources => ('video_tags_rs', 'tag');
 
+has_many video_rights_rs => ('OnlyInsults::Schema::Result::VideoRight', 'right_id');
+many_to_many rights => ('video_tags_rs', 'right');
+
 belongs_to language => ('OnlyInsults::Schema::Result::Language', 'language_id');
 belongs_to status => ('OnlyInsults::Schema::Result::Status', 'status_id');
 
