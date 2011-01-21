@@ -1,34 +1,36 @@
-package OnlyInsults::Schema::Result::User;
+use MooseX::Declare;
+class OnlyInsults::Schema::Result::User
+  extends OnlyInsults::Schema::Result {
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+  use MooseX::NonMoose;
+  use DBIx::Class::Candy;
 
-table 'user';
+  table 'user';
 
-column 'user_id' => {
-  data_type => 'varchar',
-  size => '36',
-};
+  column 'user_id' => {
+    data_type => 'varchar',
+    size => '36',
+  };
 
-column 'email' => {
-  data_type => 'varchar',
-  size => '96',
-};
+  column 'email' => {
+    data_type => 'varchar',
+    size => '96',
+  };
 
-column 'created' => {
-  data_type => 'datetime', 
-  set_on_create => 1,
-  set_on_update => 1,
-};
+  column 'created' => {
+    data_type => 'datetime', 
+    set_on_create => 1,
+    set_on_update => 1,
+  };
 
-primary_key 'user_id';
+  primary_key 'user_id';
 
-unique_constraint ['email'];
+  unique_constraint ['email'];
 
-has_many user_roles_rs => ('OnlyInsults::Schema::Result::UserRole', 'user_id');
-many_to_many roles => ('user_roles_rs', 'role');
+  has_many user_roles_rs => ('OnlyInsults::Schema::Result::UserRole', 'user_id');
+  many_to_many roles => ('user_roles_rs', 'role');
 
-1;
+}
 
 =head1 NAME
 
