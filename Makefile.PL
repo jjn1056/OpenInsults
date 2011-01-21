@@ -9,6 +9,7 @@ requires 'parent';
 requires 'Moose';
 requires 'Plack';
 requires 'Locale::Codes';
+requires 'FFmpeg::Command';
 requires 'DBIx::Class';
 requires 'DBIx::Class::Helpers';
 requires 'DBIx::Class::DynamicDefault';

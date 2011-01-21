@@ -1,5 +1,6 @@
 {
   default_view => 'HTML',
+  root => 'share/templates',
   debug_panels => [qw(
     Timer
     CatalystLog
