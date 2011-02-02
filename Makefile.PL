@@ -4,7 +4,6 @@ use strict;
 use warnings FATAL =>'all';
 use inc::Module::Install;
 
-license 'restricted';
 requires 'parent';
 requires 'Moose';
 requires 'Plack';
@@ -29,6 +28,7 @@ test_requires 'Test::Most';
 test_requires 'Test::LeakTrace';
 test_requires 'Test::Requires';
 
+license 'restricted';
 all_from 'lib/OnlyInsults.pm';
 require 'maint/Makefile.PL.include'
   if $Module::Install::AUTHOR;

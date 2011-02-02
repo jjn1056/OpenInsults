@@ -1,6 +1,5 @@
 {
   default_view => 'HTML',
-  root => 'share/templates',
   debug_panels => [qw(
     Timer
     CatalystLog
@@ -17,6 +16,9 @@
 	connect_info => {
 	  dsn => 'dbi:SQLite:dbname=:memory:',
 	},
+  },
+  'View::HTML' => {
+    include_path => ['__path_to(share,templates)__'],
   },
 };
 

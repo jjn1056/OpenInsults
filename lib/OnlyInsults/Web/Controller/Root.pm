@@ -6,7 +6,11 @@ controller ::Root {
     final action welcome as '' {
       $ctx->response->body( $ctx->welcome_message );
     }
-    final action video;
+    final action video {
+        $ctx->stash(a => sub {
+          warn @_;
+      });
+    }
   }
   action end(@) is private isa RenderView;
 }

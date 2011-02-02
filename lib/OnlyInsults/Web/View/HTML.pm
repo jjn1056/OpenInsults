@@ -2,7 +2,7 @@ package OnlyInsults::Web::View::HTML;
 use Moose;
 extends 'Catalyst::View::MicroTemplate';
 
-1;
+__PACKAGE__->meta->make_immutable;
 
 =head1 NAME
 
