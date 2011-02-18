@@ -11,7 +11,7 @@ ok (
   my $app = builder {
     enable 'StackTrace';
     enable 'Debug', panels => OnlyInsults::Web->config->{debug_panels};
-    sub { OnlyInsults::Web->run(@_) };
+    OnlyInsults::Web->psgi_app;  
   },
   'Built an Application',
 );

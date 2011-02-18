@@ -8,7 +8,7 @@ controller ::Root {
     }
     final action video {
         $ctx->stash(a => sub {
-          warn @_;
+          warn "d";
       });
     }
   }

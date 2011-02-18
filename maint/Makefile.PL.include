@@ -12,7 +12,7 @@ BEGIN {
     eval "use $module; 1"
 	  || die <<"ERR";
 
-You are in author mode but are missing Module::Install::$module
+You are in author mode but are missing $module
 
 You are getting an error message because you are in author mode and are missing
 some author only dependencies.  You should only see this message if you have 
