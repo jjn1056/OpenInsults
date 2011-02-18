@@ -109,7 +109,6 @@ This package defines the following methods.
 =head1 TODO
 
     * maybe 'Availability' isn't really the best way to describe this
-    * Do we need 'coverage' or 'location' (spacial or temporal coverage?
     * work out rating system (for friendly thru adult viewers)
     * Work out commenting system
     * add all the generated / discovered metadata, such as size, length,
