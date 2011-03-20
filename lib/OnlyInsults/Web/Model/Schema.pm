@@ -19,7 +19,7 @@ after 'BUILD', sub {
     ->populate([
       ['language_id', 'code_alpha2'], 
       map {
-        [create_uuid_as_string(), $_]
+        [$schema->uuid, $_]
       } all_language_codes('alpha2'),
   ]);
 };

@@ -13,11 +13,9 @@ ok my $video = Video->create({
   published_on_site => DateTime->now,
 });
 
-Contributor->create({
+ok my $contributor = Contributor->create({
   note => 'hello',
   videos_contributor_rs => [{ video => $video }],
 });
-
-warn Schema->VERSION;
 
 done_testing;

@@ -1,6 +1,8 @@
 package OnlyInsults::Schema;
 use parent 'DBIx::Class::Schema';
 
+our $VERSION = 1;
+
 use Data::UUID::Base64URLSafe;
 
 __PACKAGE__->load_namespaces(

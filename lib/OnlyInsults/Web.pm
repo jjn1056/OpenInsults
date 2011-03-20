@@ -4,7 +4,6 @@ our $VERSION = '0.01';
 
 use Moose;
 use Catalyst qw/
-    -Debug
     ConfigLoader
 /;
 
