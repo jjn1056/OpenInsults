@@ -1,23 +1,22 @@
 package OnlyInsults::Schema::Result::UserRole;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'user_role';
 
 column 'user_id' => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column 'role_id' => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 primary_key 'user_id', 'role_id';
-belongs_to user => ('OnlyInsults::Schema::Result::User', 'user_id');
-belongs_to role => ('OnlyInsults::Schema::Result::Role', 'role_id');
+belongs_to user => ('::User', 'user_id');
+belongs_to role => ('::Role', 'role_id');
 
 1;
 

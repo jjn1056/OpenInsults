@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Tag;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'tag';
 
 column tag_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column language_id => {
@@ -28,10 +27,10 @@ column created => {
 primary_key 'tag_id';
 unique_constraint ['term'];
 
-has_many videos_tag_rs => ('OnlyInsults::Schema::Result::VideoTag', 'video_id');
+has_many videos_tag_rs => ('::VideoTag', 'tag_id');
 many_to_many videos => ('videos_tag_rs', 'video');
 
-belongs_to language => ('OnlyInsults::Schema::Result::Language', 'language_id');
+belongs_to language => ('::Language', 'language_id');
 
 1;
 

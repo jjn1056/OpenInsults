@@ -1,18 +1,22 @@
 package OnlyInsults::Schema::Result::Video;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'video';
 
 column video_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column language_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
+};
+
+column status_id => {
+  data_type => 'varchar',
+  size => '22',
 };
 
 column title => {
@@ -29,43 +33,38 @@ column transcript => {
   data_type => 'text',
 };
 
-column status_id => {
-  data_type => 'varchar',
-  size => '36',
-};
-
-column date => {
+column published_on_site => {
   data_type => 'datetime',
 };
 
 primary_key 'video_id';
 
-has_many video_contributors_rs => ('OnlyInsults::Schema::Result::VideoContributor', 'contributor_id');
+has_many video_contributors_rs => ('::VideoContributor', 'video_id');
 many_to_many contributors => ('video_contributors_rs', 'contributor');
 
-has_many video_creators_rs => ('OnlyInsults::Schema::Result::VideoCreator', 'creator_id');
+has_many video_creators_rs => ('::VideoCreator', 'creator_id');
 many_to_many creators => ('video_creators_rs', 'creator');
 
-has_many video_subjects_rs => ('OnlyInsults::Schema::Result::VideoSubject', 'subject_id');
+has_many video_subjects_rs => ('::VideoSubject', 'video_id');
 many_to_many subjects => ('video_subjects_rs', 'subject');
 
-has_many video_tags_rs => ('OnlyInsults::Schema::Result::VideoTag', 'tag_id');
+has_many video_tags_rs => ('::VideoTag', 'video_id');
 many_to_many tags => ('video_tags_rs', 'tag');
 
-has_many video_sources_rs => ('OnlyInsults::Schema::Result::VideoTag', 'tag_id');
+has_many video_sources_rs => ('::VideoTag', 'video_id');
 many_to_many sources => ('video_tags_rs', 'tag');
 
-has_many video_rights_rs => ('OnlyInsults::Schema::Result::VideoRight', 'right_id');
+has_many video_rights_rs => ('::VideoRight', 'video_id');
 many_to_many rights => ('video_tags_rs', 'right');
 
-belongs_to language => ('OnlyInsults::Schema::Result::Language', 'language_id');
-belongs_to status => ('OnlyInsults::Schema::Result::Status', 'status_id');
+belongs_to language => ('::Language', 'language_id');
+belongs_to status => ('::Status', 'status_id');
 
 1;
 
 =head1 NAME
 
-OnlyInsults::Schema::Result::Video - Video on the website
+::Video - Video on the website
 
 =head1 DESCRIPTION
 
@@ -97,7 +96,7 @@ a textual representation of the words used in the video.
 
   * Hash tags are automatically extracted.
 
-=head2 date
+=head2 publish_on_site
 
 A date that is associated with the video.  For our purposes this will be the 
 date the video was made available for the first time on our website.
@@ -108,7 +107,6 @@ This package defines the following methods.
 
 =head1 TODO
 
-    * maybe 'Availability' isn't really the best way to describe this
     * work out rating system (for friendly thru adult viewers)
     * Work out commenting system
     * add all the generated / discovered metadata, such as size, length,

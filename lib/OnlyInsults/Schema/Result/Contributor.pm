@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Contributor;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'contributor';
 
 column contributor_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column note => {
@@ -16,14 +15,14 @@ column note => {
 
 primary_key 'contributor_id';
 
-has_many videos_contributor_rs => ('OnlyInsults::Schema::Result::VideoContributor', 'video_id');
+has_many videos_contributor_rs => ('::VideoContributor', 'contributor_id');
 many_to_many videos => ('videos_contributor_rs', 'video');
 
 1;
 
 =head1 NAME
 
-OnlyInsults::Schema::Result::Contributor - Information about a video contributor
+OnlyInsults::Schema::Result::Contributor -  About a video's contributor
 
 =head1 DESCRIPTION
 

@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Language;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'language';
 
 column language_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column code_alpha2 => {
@@ -19,8 +18,8 @@ primary_key 'language_id';
 
 unique_constraint ['code_alpha2'];
 
-has_many tags => ('OnlyInsults::Schema::Result::Tag', 'tag_id');
-has_many videos => ('OnlyInsults::Schema::Result::Video', 'video_id');
+has_many tags => ('::Tag', 'language_id');
+has_many videos => ('::Video', 'language_id');
 
 1;
 

@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Role;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'role';
 
 column 'role_id' => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column 'title' => {
@@ -25,7 +24,7 @@ primary_key 'role_id';
 unique_constraint ['title'];
 unique_constraint ['description'];
 
-has_many 'users_role_rs' => ('OnlyInsults::Schema::Result::UserRole', 'role_id');
+has_many 'users_role_rs' => ('::UserRole', 'role_id');
 many_to_many users => ('users_role_rs', 'user');
 
 1;

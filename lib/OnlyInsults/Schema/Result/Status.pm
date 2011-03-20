@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Status;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'status';
 
 column status_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column name => {
@@ -18,7 +17,7 @@ column name => {
 primary_key 'status_id';
 unique_constraint ['name'];
 
-has_many video_rs => ('OnlyInsults::Schema::Result::Video', 'status_id');
+has_many video_rs => ('::Video', 'status_id');
 
 1;
 

@@ -1,23 +1,22 @@
 package OnlyInsults::Schema::Result::VideoSource;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'video_source';
 
 column 'video_id' => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column 'source_id' => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 primary_key 'video_id', 'source_id';
-belongs_to video => ('OnlyInsults::Schema::Result::Video', 'video_id');
-belongs_to source => ('OnlyInsults::Schema::Result::Source', 'source_id');
+belongs_to video => ('::Video', 'video_id');
+belongs_to source => ('::Source', 'source_id');
 
 1;
 

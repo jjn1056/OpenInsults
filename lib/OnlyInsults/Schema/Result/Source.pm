@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Source;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'source';
 
 column source_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column uri => {
@@ -21,7 +20,7 @@ column note => {
 
 primary_key 'source_id';
 
-has_many videos_source_rs => ('OnlyInsults::Schema::Result::VideoSource', 'video_id');
+has_many videos_source_rs => ('::VideoSource', 'source_id');
 many_to_many videos => ('videos_source_rs', 'video');
 
 1;

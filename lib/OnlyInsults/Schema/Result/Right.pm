@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Right;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'right';
 
 column right_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column clause => {
@@ -17,7 +16,7 @@ column clause => {
 
 primary_key 'right_id';
 
-has_many videos_right_rs => ('OnlyInsults::Schema::Result::VideoRight', 'video_id');
+has_many videos_right_rs => ('::VideoRight', 'right_id');
 many_to_many videos => ('videos_right_rs', 'video');
 
 1;

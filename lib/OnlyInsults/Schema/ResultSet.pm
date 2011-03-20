@@ -6,13 +6,15 @@ __PACKAGE__->load_components(qw/
   Helper::ResultSet::Me
   Helper::ResultSet::Random
   Helper::ResultSet::SetOperations
+  Helper::ResultSet::ResultClassDWIM
+  Helper::ResultSet::RemoveColumns
 /);
 
-sub as_hri {
+sub hri {
   (shift)->
   search({}, {
-	result_class => 'DBIx::Class::ResultClass::HashRefInflator',
-  })->all;
+	result_class => '::HashRefInflator',
+  });
 }
 
 1;
@@ -39,7 +41,9 @@ understand included component functionality.
 
 This package defines the following methods.
 
-=head2 as_hri
+=head2 hri
+
+    my @array_of_hashrefs = $resultset->hri->all;
 
 Returns a version of the current resultset which uses the alternative resultset
 class L<DBIx::Class::ResultClass::HashRefInflator>.  This gives a nice,  clean

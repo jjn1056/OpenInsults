@@ -18,7 +18,8 @@
 	},
   },
   'View::HTML' => {
-    include_path => ['__path_to(share,templates)__'],
+    comp_root => '__path_to(share,templates)__',
+    data_dir => '__path_to(share,var)__',
   },
 };
 

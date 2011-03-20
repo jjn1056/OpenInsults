@@ -1,13 +1,12 @@
 package OnlyInsults::Schema::Result::Subject;
 
-use DBIx::Class::Candy
-  -base => 'OnlyInsults::Schema::Result';
+use OnlyInsults::Schema::Candy;
 
 table 'subject';
 
 column subject_id => {
   data_type => 'varchar',
-  size => '36',
+  size => '22',
 };
 
 column label => {
@@ -21,7 +20,7 @@ column comment => {
 
 primary_key 'subject_id';
 
-has_many videos_subject_rs => ('OnlyInsults::Schema::Result::VideoSubject', 'video_id');
+has_many videos_subject_rs => ('::VideoSubject', 'subject_id');
 many_to_many videos => ('videos_subject_rs', 'video');
 
 1;

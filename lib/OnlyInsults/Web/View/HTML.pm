@@ -1,8 +1,7 @@
 package OnlyInsults::Web::View::HTML;
-use Moose;
-extends 'Catalyst::View::MicroTemplate';
+use parent 'Catalyst::View::Mason2';
 
-__PACKAGE__->meta->make_immutable;
+1;
 
 =head1 NAME
 

@@ -1,9 +1,14 @@
 package OnlyInsults::Schema;
 use parent 'DBIx::Class::Schema';
 
+use Data::UUID::Base64URLSafe;
+
 __PACKAGE__->load_namespaces(
   default_resultset_class => 'DefaultRS',
 );
+
+my $ug = Data::UUID::Base64URLSafe->new;
+sub uuid { $ug->create_b64_urlsafe }
 
 1;
 
@@ -26,6 +31,10 @@ the database as a whole.
 =head1 METHODS
 
 This class defines the following methods
+
+=head2 uuid
+
+Creates a condensed, 22 character UUID suitable for use in PK.
 
 =head1 AUTHOR
 

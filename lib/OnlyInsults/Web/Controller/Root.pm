@@ -7,8 +7,8 @@ controller ::Root {
       $ctx->response->body( $ctx->welcome_message );
     }
     final action video {
-        $ctx->stash(a => sub {
-          warn "d";
+        $ctx->stash(b => sub {
+          print shift;
       });
     }
   }
