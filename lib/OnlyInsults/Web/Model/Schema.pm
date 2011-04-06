@@ -11,7 +11,7 @@ after 'BUILD', sub {
   $schema->deploy;
 
   $schema->resultset('User')->create({
-    email => 'onken@netcubed.de', 
+    email => 'jjn1056@yahoo.com', 
   });
 
   $schema

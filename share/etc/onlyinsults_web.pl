@@ -10,6 +10,9 @@
     Parameters
     Memory
   )],
+  'Controller::Root' => {
+    namespace => '',
+  },
   'Model::Schema' => {
     schema_class => 'OnlyInsults::Schema',
     traits => ['QueryLog::AdoptPlack'],
@@ -18,8 +21,9 @@
 	},
   },
   'View::HTML' => {
-    comp_root => '__path_to(share,templates)__',
-    data_dir => '__path_to(share,var)__',
+    root =>  '__path_to(share,templates)__',
+    template_extension => 'html',
+    default_renders_as_method => 'to_fh',
   },
 };
 

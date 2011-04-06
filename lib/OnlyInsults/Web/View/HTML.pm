@@ -1,7 +1,33 @@
 package OnlyInsults::Web::View::HTML;
-use parent 'Catalyst::View::Mason2';
 
-1;
+use Moose;
+extends 'Catalyst::View::HTML::Zoom';
+
+sub video {
+  my ($self, $ctx, $args) = @_;
+  $self->render($ctx, 'video.html', $args, sub {
+    my ($zoom, %args) = @_;
+    $self->wrap_layout($ctx, $zoom, 'layout.html', \%args)
+      ->select('h1')
+      ->replace_content($args{a});
+  });
+}
+
+sub wrap_layout {
+  my ($self, $ctx, $content, $wrapper_tmpl, $args) = @_;
+  my @body;
+  $content->select('body')
+    ->collect_content({into => \@body})
+    ->run;
+
+  $self->render_to_zoom($ctx, $wrapper_tmpl, $args, sub {
+    my ($zoom, %args) = @_;
+    $zoom->select('body')
+      ->replace_content(\@body);
+    });
+}
+
+__PACKAGE__->meta->make_immutable;
 
 =head1 NAME
 
