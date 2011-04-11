@@ -1,18 +1,25 @@
-use CatalystX::Declare;
-namespace OnlyInsults::Web::Controller;
-controller ::Root {
-  action global_start under '/' as '';
-  under global_start {
-    final action welcome as '' {
-      $ctx->response->body( $ctx->welcome_message );
-    }
-    final action video {
-      my $body = $ctx->view('HTML')->video($ctx, {a=>100});
-      $ctx->res->body($body);
-    }
-  }
-  action end(@) is private isa RenderView;
+package OnlyInsults::Web::Controller::Root;
+
+use OnlyInsults::Web::Controller;
+
+__PACKAGE__->config(namespace => '');
+
+method start : Chained('/') PathPart('') CaptureArgs(0) {}
+
+method welcome($ctx) : Chained(start) PathPart('') Args(0)
+{
+  $ctx->response->body( $ctx->welcome_message );
 }
+
+method video($ctx) : Chained(start) Args(0)
+{
+  my $body = $ctx->view('HTML')->video($ctx, {a=>100});
+  $ctx->res->body($body);
+}
+
+method end : ActionClass(RenderView) {}
+
+__PACKAGE__->meta->make_immutable;
 
 =head1 NAME
 

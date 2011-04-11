@@ -5,11 +5,12 @@ use warnings FATAL =>'all';
 use inc::Module::Install;
 
 requires 'parent';
-requires 'CatalystX::Declare';
+requires 'namespace::autoclean';
 requires 'Catalyst::Runtime';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::Model::DBIC::Schema';
+requires 'Catalyst::Controller::ActionRole';
 requires 'Catalyst::TraitFor::Model::DBIC::Schema::QueryLog::AdoptPlack';
 requires 'DBIx::Class';
 requires 'DBIx::Class::Helpers';
@@ -24,6 +25,8 @@ requires 'Plack';
 requires 'Plack::Middleware::Debug::DBIC::QueryLog';
 requires 'Plack::Middleware::Debug';
 requires 'Data::UUID::Base64URLSafe';
+requires 'Method::Signatures::Simple';
+requires 'Syntax::Feature::Method';
 
 test_requires 'DateTime';
 test_requires 'Test::Most';
