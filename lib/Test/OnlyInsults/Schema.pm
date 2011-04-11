@@ -5,13 +5,13 @@ use Locale::Language;
 
 our $VERSION = OnlyInsults::Schema->VERSION;
 
-sub fixtures_to_deploy { qw/languages/ }
+sub fixtures_to_always_deploy { qw/languages/ }
 
 sub deploy {
   my $self = shift;
   $self->next::method(@_);
   $self->${\"_deploy_$_"}()
-    for $self->fixtures_to_deploy;
+    for $self->fixtures_to_always_deploy;
 }
 
 sub _deploy_languages {

@@ -1,6 +1,8 @@
 use DateTime;
 use Test::Most;
-use Test::DBIx::Class qw(Video Contributor);
+use Test::DBIx::Class
+  -schema_class => 'Test::OnlyInsults::Schema',
+  qw(Video Contributor);
 
 ok my $video = Video->create({
   title => 'test video',

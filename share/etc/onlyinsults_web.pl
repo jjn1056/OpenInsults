@@ -23,7 +23,6 @@
   'View::HTML' => {
     root =>  '__path_to(share,templates)__',
     template_extension => 'html',
-    default_renders_as_method => 'to_fh',
   },
 };
 

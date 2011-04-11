@@ -7,8 +7,8 @@ controller ::Root {
       $ctx->response->body( $ctx->welcome_message );
     }
     final action video {
-        my $body = $ctx->view('HTML')->video($ctx, {a=>100});
-        $ctx->res->body($body);
+      my $body = $ctx->view('HTML')->video($ctx, {a=>100});
+      $ctx->res->body($body);
     }
   }
   action end(@) is private isa RenderView;
