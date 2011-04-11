@@ -4,18 +4,18 @@ use OnlyInsults::Web::Controller;
 
 __PACKAGE__->config(namespace => '');
 
-method start : Chained('/') PathPart('') CaptureArgs(0) {}
+method global_start : Chained('/') PathPart('') CaptureArgs(0) {}
 
-method welcome($ctx) : Chained(start) PathPart('') Args(0)
-{
-  $ctx->response->body( $ctx->welcome_message );
-}
+  method welcome($ctx) : Chained(start) PathPart('') Args(0)
+  {
+    $ctx->response->body( $ctx->welcome_message );
+  }
 
-method video($ctx) : Chained(start) Args(0)
-{
-  my $body = $ctx->view('HTML')->video($ctx, {a=>100});
-  $ctx->res->body($body);
-}
+  method video($ctx) : Chained(start) Args(0)
+  {
+    my $body = $ctx->view('HTML')->video($ctx, {a=>100});
+    $ctx->res->body($body);
+  }
 
 method end : ActionClass(RenderView) {}
 
