@@ -6,12 +6,12 @@ __PACKAGE__->config(namespace => '');
 
 method global_start : Chained('/') PathPart('') CaptureArgs(0) {}
 
-  method welcome($ctx) : Chained(start) PathPart('') Args(0)
+  method welcome($ctx) : Chained(global_start) PathPart('') Args(0)
   {
     $ctx->response->body( $ctx->welcome_message );
   }
 
-  method video($ctx) : Chained(start) Args(0)
+  method video($ctx) : Chained(global_start) Args(0)
   {
     my $body = $ctx->view('HTML')->video($ctx, {a=>100});
     $ctx->res->body($body);
