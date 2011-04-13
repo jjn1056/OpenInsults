@@ -1,0 +1,247 @@
+/*
+	---------------------------------------------------------------------------
+	Sets the default look for input controls and forms.  May eventually need to
+	break this out into a seperate style.css file.
+	---------------------------------------------------------------------------
+*/
+
+ fieldset
+{
+	display: block;
+	margin-bottom: 1em;
+	border: 1px #1D60A6 solid;
+	padding-right: 1em;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	
+}
+
+ fieldset div
+{
+	padding-bottom: .5em;
+}
+
+ legend
+{
+	font-weight: bold;
+	padding: .5em;
+	color: #1D60A6;
+	font-size: 11pt;
+	padding-bottom: .75em;
+}
+
+label
+{
+
+}
+
+label.labels_with_errors
+{
+	color: red;
+
+}
+
+label span.label_comments
+{
+	display: block;
+	font-size: .75em;
+}
+
+input,
+select,
+textarea
+{
+	background: #BFE0FF;
+	border: 1px #1D60A6 solid;
+	padding-top: 1px;
+	padding-bottom: 2px;
+	padding-right:5px;
+	padding-left:5px;
+	font-family: arial;
+	font-size: 12px;
+	width: 225px;
+	font-weight: normal;
+}
+
+select
+{
+	width: auto;
+}
+
+form span.error_messages
+{
+	width: 10em;
+	color: red;
+	font-size: .77em;
+
+}
+
+form span.error_messages span
+{
+	display: block;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+{
+	width: 90px;
+	text-transform: capitalize;
+	color: #ffffff;
+	background: #1D60A6;
+	font-weight: bold;
+	margin-right: .5em;
+	margin-left: .5em;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus
+{
+	background: #FFE8A3;
+}
+
+input[type='radio']
+{
+	width: 20px;
+	background: none;
+	border: none;
+}
+
+input[type='checkbox']
+{
+	width: 20px;
+	background: none;
+	border: none;
+}
+
+.labels_with_errors input,
+.labels_with_errors select,
+.labels_with_errors textarea
+{
+	background: #fff4f4;
+	border-color: red;
+}
+
+form input[type="text"],
+form input[type="password"]
+{
+	width: 20em;
+}
+
+form input[type='hidden']
+{
+	display: none;
+}
+
+form fieldset.form_control div
+{
+	text-align: right;
+}
+
+form fieldset.form_control input[type="submit"],
+form fieldset.form_control input[type="reset"],
+form fieldset.form_control input[type="button"]
+{
+	top: 0;
+	margin: 0;
+	margin-right: 1em;
+	display: inline;
+}
+
+form fieldset.form_control input[type="hidden"]
+{
+	display: none;
+}
+
+/* Compact theme, good for portlets and forms that need to
+fit into small areas. */
+
+
+form.compact input,
+form.compact select,
+form.compact textarea
+{
+	display: block;
+	margin-bottom: 7px;
+	margin-top: 3px;
+}
+
+form.compact span.error_messages
+{
+	display: block;
+	text-align: right;
+	width: 100%;
+	clear: both;
+}
+
+form.compact label
+{
+	display: block;
+}
+
+/* Standard theme, good for full page forms */
+
+
+form.standard label
+{
+	display: block;
+	clear: both;
+}
+
+form.standard label span.internal_label
+{
+	width: 12em;
+	display:block;
+}
+
+form.standard label.labels_with_errors
+{
+}
+
+form.standard input,
+form.standard select,
+form.standard textarea
+{
+	position: relative;
+	display: block;
+	margin-left: 14em;
+	top: -1.26em;
+}
+
+form.standard input[type="checkbox"]
+{
+	float: left;
+	display: inline;
+	top: 0em;
+	margin-bottom: .75em;
+}
+
+
+form.standard input[type='hidden']
+{
+	display: none;
+}
+
+form.standard span.error_messages
+{
+	/*float: left;*/
+
+}
+
+form.standard span.error_messages span
+{
+	margin-left: 16.5em;
+	padding: 2px;
+	position: relative;
+	top: -1em;
+}
+
+
+
+
+
+	
+
+

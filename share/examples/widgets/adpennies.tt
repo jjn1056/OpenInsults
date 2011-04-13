@@ -1,0 +1,68 @@
+[% BLOCK adpennies %]
+
+<div id="copy_ad" class="default_portlet no_decoration nopadding">
+ <div class="portlet_container">
+ <div class="portlet_head">
+ <h2 class="portlet_title">Ad Copy</h2>
+
+ <p class="portlet_description">Ad Copy</p>
+ </div>
+ <div class="portlet_content">
+ <table cellpadding="0" cellspacing="0" border="0">
+ <tbody>
+ <tr>
+ <td align="center[>]" border="0" alt="Sign up for ZoomWit!" height="352" width="240" />
+
+ <br />
+ <br />
+ </td>
+ </tr>
+ <!--tr>
+ <td>
+ <span style="font-size: 16px;">All this for just </span>
+ <span style="font-size: 25px; font-weight: bolder;">Pennies</span>
+ <span style="font-size: 16px;"> a day</span>
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <ul>
+ <li>
+ <a href="signup.html">Monthly Pass Holders $9.99</a>
+ </li>
+ <li>
+ <a href="signup.html">Silver Membership (6 Mths) $49.99</a>
+ </li>
+ <li>
+ <a href="signup.html">Gold Membership (12 Mths) $69.99</a>
+ </li>
+ </ul>
+ <br />
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <div class="portlet_content">
+ <p>
+ <a href="signup.html[>]" border="0" alt="Sign up for ZoomWit!" height="30" width="240" />
+ </a>
+ </p>
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <div class="portlet_content">
+ <p>
+ <a href="signup.html[>]" border="0" alt="Sign up for ZoomWit!" height="30" width="240" />
+ </a>
+ </p>
+ </div>
+ </td>
+ </tr-->
+ </tbody>
+ </table>
+ </div>
+ </div>
+ 
+ [% END %]

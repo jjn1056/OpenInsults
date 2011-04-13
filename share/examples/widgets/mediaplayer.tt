@@ -1,0 +1,94 @@
+[% BLOCK mediaplayer %]
+
+<script type="text/javascript" src="[% hosts.assets('player/js/swfobject.js') %]"></script>
+
+	<script>
+		<!--
+			var alertsOn = false;
+			function thisMovie(movieName) {
+				if (navigator.appName.indexOf("Microsoft") != -1) {
+					return window[movieName];
+				} else {
+					return document[movieName];
+				}
+			}
+			function initPlayer() {
+				thisMovie("zoomwitplayer").queue_Movie("[% hosts.video('Angela.flv') %]", null);
+				thisMovie("zoomwitplayer").advance_Queue();
+				if (alertsOn) {
+					alert("Disabling Player Advancement Control");
+				}
+				thisMovie("zoomwitplayer").disable_PlayerControls();
+			}
+			function videoCompleted(curr, total) {
+				if (alertsOn) {
+					alert("Video #" + curr + " of " + total + " completed");
+				}
+			}
+			function allVideosCompleted(total) {
+				if (alertsOn) {
+					alert("all " + total + " videos completed");
+					alert("Enabling Player Advancement Control");
+				}
+				thisMovie("zoomwitplayer").enable_PlayerControls();
+			}
+			function fullScreenSelected() {
+				if (alertsOn) {
+					alert("fullScreenSelected");
+				}
+			}
+			function exitFullScreenSelected() {
+				if (alertsOn) {
+					alert("exitFullScreenSelected");
+				}
+			}
+			function videoPlayed() {
+				if (alertsOn) {
+					alert("videoPlayed");
+				}
+			}
+			function videoPaused() {
+				if (alertsOn) {
+					alert("videoPaused");
+				}
+			}
+			function videoStopped() {
+				if (alertsOn) {
+					alert("videoStopped");
+				}
+			}
+		-->
+		</script>
+
+<style>
+#videocontainer {
+  	width: 450px;
+	height: 376px;
+	padding: 0;
+	margin: 100px auto;
+}
+
+#video {
+  	width: 450px;
+	height: 376px;
+	padding: 0;
+	margin: 0;
+}
+</style>		
+	
+<div id="videocontainer">
+	<div id="video">
+			<strong>You need to upgrade your Flash Player. </strong>
+			If you are certain you have the required plugin, you can <a href="home.php?detectflash=false">bypass the detection</a> if you wish.
+	</div>
+	<script type="text/javascript">
+		// <![CDATA[
+		var so = new SWFObject("[% hosts.assets('player/flash/zoomwitplayer.swf') %]?baseURL=[% hosts.assets('player/flash/') %]&baseColor=red", "zoomwitplayer", "100%", "100%", "8.0.23", "#FFF", true);
+		so.addParam("allowFullscreen", true);
+		so.addParam("menu", true);
+		so.write("video");
+		// ]]>
+	</script>
+</div>
+
+[% END %]

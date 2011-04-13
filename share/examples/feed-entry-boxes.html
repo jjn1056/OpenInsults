@@ -1,0 +1,115 @@
+[%	META
+		title	= 'Portlets'
+		summary	= 'Gives some examples for how portlets should look'
+		tags	= 'examples internal';
+	   
+	window = {
+	
+		title => template.title,
+		root_layout => "banner_menu_foot.html",
+		
+	};	%]
+	
+	<h1>[% assets %]</h1>
+
+
+	<div style="margin-bottom: 15px">
+		<h2>Feed Entry Boxes</h2>
+		<p>Generally used as a promo for a page or section of pages.</p>
+	</div>
+	<style>
+			div.previewbackground {
+
+		background-color: #a0a0a0;
+		
+			height:178px;
+			background-image:url([% hosts.assets('global/css/img/preview_table_cell.jpg') %]);
+			background-position:left top;
+			background-repeat:no-repeat;
+			
+			
+			padding-left:14px;
+			padding-right:10px;
+			padding-top:22px;
+			padding-bottom: 0px;
+			width:221px;			
+		}
+				
+		div.previewbackground div.row_container {
+		
+			overflow:hidden;
+			margin-bottom: 15px;
+		}
+		
+		div.previewbackground .region_left {
+		
+			height:75px;
+			width:75px;
+			border: 1px red solid;
+		}
+	
+		div.previewbackground .region_right {
+		
+			height:74px;
+			width:127px;
+			margin-right:6px;
+		}	
+		
+	</style>
+	
+	[% WRAPPER $row;
+		WRAPPER $cell
+			type = 'left'
+			classes = 'column_33percent_width';
+			WRAPPER $gutter
+				type = 'default' 
+				sides = 'right';
+				WRAPPER $portlet 
+					title	= "Default PortletB" mixins='nopadding' %]
+
+			<div class="previewbackground">
+				
+					<div class="row_container">
+
+						<img  class="region_left" src="/static/images/preview_table_pic_01.jpg" alt="Contest Highlights" />
+						<h3 class="region_right">Contest Highlights</h3>
+					</div>
+
+					[% WRAPPER $row %]
+						<div style="">Watch the most interesting contest entries again and again. Plus, we have all the unforgettable bloopers. 
+					[% END %]
+				
+			</div>	
+		
+			[% END;
+			END;
+		END %]
+
+		[% WRAPPER $cell
+			type = 'left'
+			classes = 'column_33percent_width' %]
+			[% WRAPPER $gutter
+				type = 'default' 
+				sides = ['right','left'] %]
+				[% WRAPPER $portlet 
+					title	= "Default PortletB"	%]
+				Hello this is the default portlet!  Feel my power and tremble.
+				[% END %]
+			[% END %]
+		[% END %]
+			
+		[% WRAPPER $cell
+			type = 'right'
+			classes = 'column_33percent_width' %]
+			[%  WRAPPER $gutter
+				type='default'
+				sides='left' %]		
+				[% WRAPPER $portlet
+					type	= "simple_portlet"
+					title	= "Simple Portlet"	%]
+				Hello this is the Simple portlet!  Feel my power and tremble.
+				[% END %]
+			[% END %]
+		[% END %]
+	[% END %]
+

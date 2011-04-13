@@ -1,0 +1,7 @@
+<html>
+  <head>
+    <title><: block title | trim -> { :>Default Title<: } :></title>
+    <link rel="stylesheet" href="<: $url_for_css() :>" type="text/css" />
+  </head>
+  <body><: block body -> { :>Default Body<: } :></body>
+</html>

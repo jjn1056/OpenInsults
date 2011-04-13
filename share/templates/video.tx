@@ -1,0 +1,4 @@
+:cascade layout
+:override title -> {
+    The awesome new Video Page!
+:}

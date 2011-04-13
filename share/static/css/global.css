@@ -1,0 +1,125 @@
+/*
+	===========================================================================
+	'global.css' sets the basic styles for tags on the website.  Typically 
+	stuff that effects many pages.  If you are creating a class instead of
+	setting a default look for a tag it probably belongs in 'bits.css' instead
+	===========================================================================
+
+	---------------------------------------------------------------------------
+	This first section sets defaults for general tags and tries to even out the
+	differences between various browers.
+	---------------------------------------------------------------------------
+*/	
+
+body,
+div,
+img,
+form,
+h1,
+h2,
+h3,
+p,
+ol,
+ul
+{
+	padding: 0;
+	margin: 0;
+}
+
+body
+{
+
+	font-family: verdana, sans-serif;
+	font-size: 10pt;
+	/*color: #1D60A6;*/
+	/*text-align: center; 	 IE Hack to center */
+}
+
+a
+{
+	text-decoration: none
+}
+
+	a:hover
+	{
+		text-decoration: underline;
+	}
+	
+ul
+{
+	list-style-type: square;
+}
+
+ul,
+ol
+{
+	margin-left: 1.3em;
+}
+
+/*	Horizontal Rules Styles: This should probably go somewhere
+	else, just can't decide right now :) */
+
+hr
+{
+	border: 0;
+	color: #999999;
+	background-color: #999999;
+	width: 90%;
+	margin-top : .9em;
+	margin-bottom: .9em;
+	text-align: center; /* For IE only */
+}
+
+hr.black
+{
+	color: black;
+	background-color: black;
+}
+
+hr.blue
+{
+	color: #1D60A6;
+	background-color: #1D60A6;
+}
+
+hr.gold
+{
+	color: #dac874;
+	background-color: #dac874;
+}
+
+hr.darkblue
+{
+	color: #1D60A6;
+	background-color: #1D60A6;
+}
+
+hr.purple
+{
+	color: #B47DB7;
+	background-color: #B47DB7;
+}
+
+hr.green
+{
+	color: #8EC243;
+	background-color: #8EC243;
+}
+
+hr.orange
+{
+	color: #FB9914;
+	background-color: #FB9914;
+}
+
+hr.red
+{
+	color: #f03933;
+	background-color: #f03933;
+}
+
+/* -- used to hold information for widgets --*/
+.inline_data
+{
+	display: none;
+}

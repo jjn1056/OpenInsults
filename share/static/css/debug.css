@@ -1,0 +1,45 @@
+/*
+	===========================================================================
+	'debug.css' adds some borders to things so I can see how the layout works
+	===========================================================================
+*/	
+
+.debug_red_border
+{
+	border: 1px red solid;
+}
+
+.debug_blue_border
+{
+	border: 1px blue solid;
+}
+
+.debug_green_border
+{
+	border: 1px green solid;
+}
+
+.debug_dotted_border
+{
+	border-style: dotted;
+}
+
+.debug_content_xshort:after
+{
+	content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris venenatis ultricies ipsum. Cras euismod vestibulum pede.";
+}
+
+.debug_content_short:after
+{
+	content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris venenatis ultricies ipsum. Cras euismod vestibulum pede. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum ac neque quis odio consectetuer posuere.";
+}
+
+.debug_content_medium:after
+{
+	content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris venenatis ultricies ipsum. Cras euismod vestibulum pede. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum ac neque quis odio consectetuer posuere. Integer arcu justo, gravida id, semper id, aliquet non, lacus. Suspendisse dolor. Pellentesque sagittis volutpat orci. Nam facilisis consequat quam. Integer suscipit, dolor at mollis aliquet, felis ante semper magna, vitae eleifend metus lectus et dui. ";
+}
+
+.debug_content_long:after
+{
+	content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris venenatis ultricies ipsum. Cras euismod vestibulum pede. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum ac neque quis odio consectetuer posuere. Integer arcu justo, gravida id, semper id, aliquet non, lacus. Suspendisse dolor. Pellentesque sagittis volutpat orci. Nam facilisis consequat quam. Integer suscipit, dolor at mollis aliquet, felis ante semper magna, vitae eleifend metus lectus et dui. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris venenatis ultricies ipsum. Cras euismod vestibulum pede. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum ac neque quis odio consectetuer posuere. Integer arcu justo, gravida id, semper id, aliquet non, lacus. Suspendisse dolor. Pellentesque sagittis volutpat orci. Nam facilisis consequat quam. Integer suscipit, dolor at mollis aliquet, felis ante semper magna, vitae eleifend metus lectus et dui.";
+}

@@ -1,0 +1,22 @@
+[% BLOCK slideshow %]
+	<div id='slideshow' class='default_portlet no_decoration nopadding'>
+		<div class='portlet_container'>
+			<div class='portlet_head'>
+				<h2 class='portlet_title'>Slideshow</h2>
+			</div>
+			<div class='portlet_content'>
+				<object 
+					id='slideshowFlash'
+					type='application/x-shockwave-flash' 
+					data='[% hosts.assets('media/slideshow.swf') %]'
+					style='height: 200px; width:480px; margin:0; padding: 0;overflow: hidden'>
+					
+					<param name='movie' value='[% hosts.assets('media/slideshow.swf') %]' />
+					<param name='allowScriptAccess' value='sameDomain' />
+					<param name='bgcolor' value='#ffffff' />
+					<param name='quality' value='high' />
+				</object>
+			</div>
+		</div>
+	</div>
+[% END %]

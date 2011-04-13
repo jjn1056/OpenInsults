@@ -1,0 +1,26 @@
+[% window = {
+
+		title => "New Forum Entry",
+		root_layout => "banner_foot.html",
+} %]
+<h1>Example of the New Forum Entry Form</h1>
+
+<form action="#create_new_forum_entry">
+	<fieldset>
+		<legend>New Forum Entry</legend>
+		<dl>
+			<dt>
+				<label>Title</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="create_new_forum_entry_title" name="title" type="text" />
+			</dd>
+			<dt>
+				<label>Content</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="create_new_forum_entry_content" name="content" type="text" />
+			</dd>
+		</dl>
+	</fieldset>
+</form>

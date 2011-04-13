@@ -1,0 +1,257 @@
+[% window = {
+
+		title => "Profile Form",
+		root_layout => "banner_foot.html",
+} %]
+<h1>Example of the Profile Form</h1>
+
+<form action="#create_new_profile" method="post" ENCTYPE="multipart/form-data">
+	<fieldset>
+		<legend> MyZoomWit Anchors </legend>
+		<dl>
+			<dt>
+				<label>Public Profile URL</label>
+			</dt>
+			<dd>
+				<!-- This should have a default value of www.zoomwit.com/userdisplayname -->
+				<input class="textfield" id="create_public_profile" name="profile" value="" type="text" />
+			</dd>
+			<dt>
+				<label>Video Profile </label>
+			</dt>
+			<dd>
+				<input id="video_profile" name="video_profile" type="file" />
+			</dd>
+			<dt>
+				<label>Picture</label>
+			</dt>
+			<dd>
+				<input id="picture" name="picture" type="file" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>Basics Information</legend>
+		<b> First Name &nbsp;  Middle Name  &nbsp;  Last Name</b>
+		<dl>
+			<dt>
+				<label>Nickname</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="nickname" name="nickname" type="text" />
+			</dd>
+			<dt>
+				<label>Birthday</label>
+				<b>Jannary 7th 1900.</b>
+			</dt>
+			<dt>
+				<label>Gender</label>
+			</dt>
+			<dd>
+				<fieldset>
+					<input id="male" name="gender" type="radio" value="m" /> Male &nbsp; 
+					<input id="female" name="gender" type="radio" value="f" /> Female 
+				</fieldset>
+			</dd>
+			<!-- dt>
+				<label>Relationship Status</label>
+			</dt>
+			<dd>
+				<select name="relationship_status">
+					<option value=""></option>
+					<option value="s">Single</option>
+					<option value="m">Married</option>
+					<option value="a">Actively dating</option>
+					<option value="o">Taken but looking</option>
+					<option value="t">Taken</option>
+				</select>
+			</dd -->
+			<dt>
+				<label>Relationship Status</label>
+			</dt>
+			<dd>
+				<fieldset>
+					<input id="single" name="relationship_status" type="radio" value="single" /> Single &nbsp;
+					<input id="married" name="relationship_status" type="radio" value="married" /> Married &nbsp;
+					<input id="active" name="relationship_status" type="radio" value="active" /> Actively dating &nbsp;
+					<input id="looking" name="relationship_status" type="radio" value="looking" /> Taken but looking &nbsp;
+				</fieldset>
+			</dd>
+			<dt>
+				<label>About Me 
+        
+				</label>
+				<br />
+				<span>(describe yourself)</span>
+			</dt>
+			<dd>
+				<textarea name="about_me" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Personal Websites
+				
+				</label>
+				<br />
+				<span>(separate with commas)</span>
+			</dt>
+			<dd>
+				<input class="textfield" id="personal_websites" name="personal_websites" type="text" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>Location Information</legend>
+		<dl>
+			<dt>
+				<label>Hometown</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="hometown" name="hometown" type="text" />
+			</dd>
+			<span>
+				<b>Where You Currently Live</b>
+			</span>
+			<dt>
+				<label>City</label>
+			</dt>
+			<dd>
+				<select name="city">
+					<option value="" />
+					<option value="ga">GA</option>
+					<option value="ny">NY</option>
+				</select>
+			</dd>
+			<dt>
+				<label>Zip / Postal Code</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="zip" name="zip" type="text" />
+			</dd>
+			<dt>
+				<label>Country</label>
+			</dt>
+			<dd>
+				<select name="country">
+					<option value="" />
+					<option value="nigeria">NIgeria</option>
+					<option value="usa">USA</option>
+				</select>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>Education</legend>
+		<span>Separate items with commas</span>
+		<dl>
+			<dt>
+				<label>Grade School</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="gradeschool" name="gradeschool" type="text" />
+			</dd>
+			<dt>
+				<label>High School</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="highschool" name="highschool" type="text" />
+			</dd>
+			<dt>
+				<label>College</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="college" name="college" type="text" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>Career Information</legend>
+		<span>Separate items with commas</span>
+		<dl>
+			<dt>
+				<label>Occupations</label>
+			</dt>
+			<dd>
+				<input class="textfield" id="occupations" name="occupations" type="text" />
+			</dd>
+			<dt>
+				<label>Companies: Present and Past </label>
+			</dt>
+			<dd>
+				<input class="textfield" id="companies" name="companies" type="text" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>Additional Information</legend>
+		<span>Separate items with commas</span>
+		<dl>
+			<dt>
+				<label>Interests and Hobbies</label>
+			</dt>
+			<dd>
+				<textarea name="interests" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Favorite Movies </label>
+			</dt>
+			<dd>
+				<textarea name="movies" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Favorite TV Shows </label>
+			</dt>
+			<dd>
+				<textarea name="tvshows" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Favorite Music </label>
+			</dt>
+			<dd>
+				<textarea name="music" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Favorite Books </label>
+			</dt>
+			<dd>
+				<textarea name="books" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Favorite Authors </label>
+			</dt>
+			<dd>
+				<textarea name="authors" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Favorite Artists </label>
+			</dt>
+			<dd>
+				<textarea name="artists" cols="45" rows="7"> </textarea>
+			</dd>
+			<dt>
+				<label>Best Book You've Read </label>
+			</dt>
+			<dd>
+				<input class="textfield" id="bookrated" name="bookrated" type="text" />
+			</dd>
+			<dt>
+				<label>Best Concert/Performance Ever </label>
+			</dt>
+			<dd>
+				<input class="textfield" id="performancerated" name="performancerated" type="text" />
+			</dd>
+			<dt>
+				<label>Last movie seen that you rate </label>
+			</dt>
+			<dd>
+				<input class="textfield" id="movierated" name="movierated" type="text" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset class="form_control" id="profile_form_control">
+		<legend>Submit</legend>
+		<div>
+			<input class="submit" id="profile_save" name="profile_save" value="Save" type="submit" />
+			<input class="reset" id="profile_reset" name="profile_reset" type="reset" />
+		</div>
+	</fieldset>
+</form>

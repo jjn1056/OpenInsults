@@ -1,0 +1,271 @@
+/*
+	===========================================================================
+	'bits.css' are classes for global layout issues that cut across multiple 
+	pages but are not directly in the global style sheet.
+	===========================================================================
+
+	---------------------------------------------------------------------------
+	Some classes used to control basic tag layout and display.  Use this for
+	positioning and styling elements that are end items, like images or spans
+	of text. For layout over several tags use 'grids.css' or 'layouts.css' 
+	which contains floats for divs to make columns in your layout.
+	---------------------------------------------------------------------------
+*/	
+
+.hidden
+{
+	display: none;
+}
+
+.float_left
+{
+	float: left;
+}
+
+.float_right
+{
+	float: right;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	The .hlist class is used to transform an ordered or unordered list from a
+	vertical list to a horizontal list.  This offers no theming, you need to
+	set the color and font locally.
+	---------------------------------------------------------------------------
+*/
+
+.hlist
+{
+
+	overflow: hidden;
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.hlist li
+{
+	float: left;
+	padding-right: 1.5em;
+}
+
+.hlist li.compact
+{
+	float: left;
+	padding-right: 1px;
+}
+
+/*
+	---------------------------------------------------------------------------
+	The lasted updated banner is a basic gray strip used typically for the feed
+	controller and contains the date and time of when the feed cache was last
+	refreshed.  If you need a different color or layout in your custom portlet
+	you should override this class instead of inventing your own.
+	---------------------------------------------------------------------------
+*/
+
+.last_updated_banner
+{
+	padding-left: 7px;
+	background: #e0e0e0;
+	margin-bottom: 2px;
+}
+
+/*
+	---------------------------------------------------------------------------
+	Boxes, some styles to help out making internal boxes inside of portlets.
+	---------------------------------------------------------------------------
+*/
+
+div.box
+{
+	margin-bottom: 4px;
+}
+
+div.box .box_title
+{
+	border-bottom: 1px #909090 solid;
+	padding: 2px;
+	padding-left: 4px;
+	margin-bottom: 3px;
+	color: #1D60A6;
+}
+
+div.box .box_info
+{
+	font-style: italic;
+	font-size: smaller;
+	color: #a0a0a0;
+	margin-bottom: 3px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+div.box .box_content
+{
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+/*
+	---------------------------------------------------------------------------
+	Standard Site Images
+	---------------------------------------------------------------------------
+*/
+
+img.feed_logo
+{
+	border: 1px #a0a0a0 solid;
+	height: 60px;
+	width: 180px;
+	margin: 4px;
+}
+
+img.feed_icon
+{
+	border: 1px #a0a0a0 solid;
+	height: 75px;
+	width: 75px;
+	margin: 4px;
+}
+
+img.normal_feed_entry
+{
+	border: 1px #a0a0a0 solid;
+	height: 75px;
+	width: 75px;
+	margin: 4px;
+}
+
+img.large_feed_entry
+{
+	border: 1px #a0a0a0 solid;
+	height: 150px;
+	width: 150px;
+	margin: 4px;
+}
+
+img.profile
+{
+	border: 1px #a0a0a0 solid;
+	height: 90px;
+	width: 120px;
+	margin: 4px;
+}
+
+img.video_thumbnail
+{
+	height: 60px;
+	width: 80px;
+	margin: 4px;
+}
+
+img.video_preview
+{
+	height: 150px;
+	width: 150px;
+	margin: 4px;
+}
+
+img.blogger
+{
+	height: 35px;
+	width: 35px;
+	margin: 2px;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	Img box
+	
+	<div class="image_box">
+		<h3>My Image Title</h3>
+		<img ....../>
+		<p>My Comments Are Here</p>
+	</div>
+	---------------------------------------------------------------------------
+*/
+
+div.image_box
+{
+	position: relative;
+	text-align:center;
+}
+
+div.image_box h3
+{
+	font-size: .75em;
+	text-align: center;
+	font-weight: bold;
+	color: #808080;
+	margin-bottom: .5em;
+}
+
+div.image_box img
+{
+	border: 1px #a0a0a0 solid;
+}
+
+div.image_box p
+{
+	font-size: .86em;
+	text-align: center;
+	margin-top: .4em;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	Standard Tables
+	---------------------------------------------------------------------------
+*/	
+
+table.default_table 
+{
+	width: 99.99%;
+	border-collapse: collapse;
+}
+
+.default_table th,
+.default_table td
+{
+	padding: 0px;
+	margin: 0;	
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 9pt;
+	border-top: 1px #666666 solid;	
+}
+
+.default_table th
+{
+	background: #e9e9e9;
+	color: #1D60A6;
+	text-align: left;
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+
+.default_table td
+{
+	padding-bottom: 4px;
+	padding-top: 4px;
+
+}
+
+/* ---- A Mixin to add the vertical dividers ---- */
+table.default_table.vertical_dividers td
+{
+	border-left: 1px #666666 solid;
+}
+
+
+.trademark
+{
+	font-size: 8px; 
+	vertical-align: top;
+}

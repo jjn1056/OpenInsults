@@ -1,0 +1,317 @@
+/*
+	===========================================================================
+	'layouts.css' are used to create grids for page and portlet layouts.  We
+	also put here layout containers for things like the standard form box.
+	===========================================================================
+
+	---------------------------------------------------------------------------
+	Basic system for creating columns of elements.  You need to set the width
+	in the local stylesheet.  For more boilerplate use the 'grids.css' sheet
+	and see the documentation at yahoo for using it.
+	
+	Used primarily for divs and fieldsets.
+	---------------------------------------------------------------------------
+*/	
+
+.column_container,
+.row_container,
+.grid_container
+{
+	width: 100%;
+	/*overflow: hidden*/; 
+}
+
+.row_container
+{
+	overflow: hidden;
+}
+
+.centered_row
+{
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left; 		/* reset the IE Hack to center stuff, see 'global.css'. */		
+}
+
+.column_left,
+.region_left,
+.row_left
+{
+	/* The float left column is the one we generally use to create columns of stuff
+	and just have the column right for completeness and in case you really need to 
+	float stuff to the right. */
+	
+	float: left;
+}
+
+.column_right,
+.region_right,
+.row_right,
+.column_final,
+.region_final
+{
+	/* The *_final is here for more semantically meaning uses of this class, since mostly
+	we use it for making sure the final region of a row or column is properly right aligned
+	against the right edge of the content are for the template.  We seldom use it for a
+	real right float need.*/
+	float: right;
+}
+
+.column_10percent_width
+{
+	width: 10%;
+}
+
+.column_15percent_width
+{
+	width: 15%;
+}
+
+.column_20percent_width
+{
+	width: 20%;
+}
+
+.column_25percent_width
+{
+	width: 24.99%; /* deals with some weirdness in IE */
+}
+
+.column_30percent_width
+{
+	width: 30%; /* deals with some weirdness in IE */
+}
+
+.column_33percent_width
+{
+	width: 33.3%; /* deals with some weirdness in IE */
+}
+
+.column_34percent_width
+{
+	width: 34%;
+}
+
+.column_40percent_width
+{
+	width: 40%;
+}
+
+.column_45percent_width
+{
+	width: 44.999%;
+}
+
+
+.column_50percent_width
+{
+	width: 49.99%;
+}
+
+.column_60percent_width
+{
+	width: 60%;
+}
+
+.column_65percent_width
+{
+	width: 65%;
+}
+
+.column_66percent_width
+{
+	width: 66%;
+}
+
+.column_70percent_width
+{
+	width: 69.5%;
+}
+
+.column_75percent_width
+{
+	width: 75%;
+}
+
+.column_80percent_width
+{
+	width: 80%;
+}
+
+.column_85percent_width
+{
+	width: 85%;
+}
+
+.column_90percent_width
+{
+	width: 90%;
+}
+
+
+.column_100percent_width
+{
+	width: 100%;
+}
+
+/* Set A  - Note: available internal space is minus gutter of choice */
+
+.column_255px_width
+{
+	width: 255px;
+}
+
+	.column_127px_width
+	{
+		width: 127px;
+	}
+
+.column_500px_width
+{
+	width: 500px;
+}
+
+	.column_250px_width
+	{
+		width: 250px;
+	}
+	
+	.column_125px_width
+	{
+		width: 125px;
+	}	
+
+/* Set B  */
+
+.column_100px_width
+{
+	width: 100px;
+}
+
+.column_200px_width
+{
+	width: 200px;
+}
+
+.column_205px_width
+{
+	width: 205px;
+}
+
+.column_225px_width
+{
+	width: 225px;
+}
+
+.column_274px_width
+{
+	width: 274px;
+}
+
+.column_278px_width
+{
+	width: 278px;
+}
+
+.column_285px_width
+{
+	width: 285px;
+}
+
+.column_300px_width
+{
+	width: 300px;
+}
+
+.column_259px_width
+{
+	width: 259px;
+}
+
+.column_305px_width
+{
+	width: 305px;
+}
+
+.column_410px_width
+{
+	width: 410px;
+}
+
+.column_440px_width
+{
+	width: 440px;
+}
+
+.column_492px_width
+{
+	width: 492px;
+}
+
+.column_485px_width
+{
+	width: 485px;
+}
+
+.column_500px_width
+{
+	width: 500px;
+}
+
+.column_600px_width
+{
+	width: 600px;
+}
+
+.column_610px_width
+{
+	width: 610px;
+}
+
+.column_725px_width
+{
+	width: 725px;
+}
+
+/*
+	---------------------------------------------------------------------------
+	Standard gutters.  Generally just use the right gutters for consistancy
+	---------------------------------------------------------------------------
+*/
+
+.default_gutter_right
+{
+	margin-right: 4px;
+}
+
+.default_gutter_left
+{
+	margin-left: 4px;
+}
+
+.default_gutter_left_right,
+.default_gutter_right_left
+{
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.standard_right_gutter
+{
+	margin-right: 7px;
+}
+
+.standard_left_gutter
+{
+	margin-left: 7px;
+}
+
+.fivepx_right_gutter
+{
+	margin-right: 5px;
+}
+
+.fivepx_left_gutter
+{
+	margin-left: 5px;
+}

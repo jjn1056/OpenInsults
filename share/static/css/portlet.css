@@ -1,0 +1,851 @@
+/*
+	===========================================================================
+	'portlet.css' sets the layout for the tags which are part of each portlet.
+	This has two sections, the first is for the standard layout which all the
+	portlets share and the second is the portlet theming, which is how you
+	create different portlet look and feels.
+	===========================================================================
+
+	---------------------------------------------------------------------------
+	Set the general proportions of the website.  You should not need to touch
+	this layout section.  You can either create your own portlet themes below
+	or you can create a unique portlet by referencing the portlet id.
+	---------------------------------------------------------------------------
+*/
+.portlet_container,
+.portlet_head,
+.portlet_title,
+.portlet_description,
+.portlet_content
+{
+	/* Setup some global Options */
+	margin: 0;
+	padding: 0;
+}
+
+.portlet_container
+{
+	/* The container wraps the entire portlet. */
+	margin-bottom: 9px;
+	overflow:hidden;
+	zoom:1
+}
+
+.portlet_head
+{
+	/* The head is a div tag containing the portlet
+	title and other stuff, similar to an html head
+	area */
+}	
+
+h2.portlet_title
+{
+	/* The title is a h2 tag */
+}
+
+.portlet_description
+{
+	/* By default this is not shown for now */
+	display: none;
+}
+
+.portlet_subscribe
+{
+	/* By default this is not shown for now */
+	display: none;
+}
+
+.portlet_content
+{
+	/* The portlet_content is the area where you 
+	custom content goes */
+}
+
+.portlet_subscribe
+{
+	/* a span or div in the head area */
+}
+
+/*
+	===========================================================================
+	STANDARD ELEMENT STYLES: These defined some standards for elements inside a
+	portlet_content area class.  These are used for all portlets but individual
+	themes can overide them, so make sure you check.  Also you can override
+	them in the normal way, using the portlet id to specify custom styles.
+	===========================================================================
+	
+	---------------------------------------------------------------------------
+	BLOCK ELEMENTS:  Here are defaults for all block elements used inside of
+	portlets content areas.
+	---------------------------------------------------------------------------
+*/
+
+.portlet_content p,
+.portlet_content div,
+.portlet_content table
+{
+	font-family: arial;
+	font-size: 10pt;
+}
+
+.portlet_content h3
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 9pt;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	DEFAULT THEME:  This is the standard light blue header and thin blue border
+	which defines the standard look for talentspace portlets.  This is the 
+	theme to use if you don't know what to do.  This theme is also a good model
+	for creating other themes.
+	---------------------------------------------------------------------------
+*/
+
+.default_portlet .porlet_container,
+.default_portlet .portlet_head,
+.default_portlet .portlet_title,
+.default_portlet .portlet_description,
+.default_portlet .portlet_content
+{
+
+}
+
+.default_portlet .portlet_container
+{
+	background: #ffffff;
+	border: 1px #99CCFF solid;	
+}
+
+.default_portlet .portlet_head
+{
+
+}
+
+.default_portlet h2.portlet_title
+{
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	
+	color: #1D60A6;	
+	font-size: 9pt;
+	font-weight: bold;
+	background: #99CCFF;
+}
+
+.default_portlet .portlet_description
+{
+	
+}
+
+.default_portlet .portlet_subscribe
+{
+	float: right;
+	background: #1D60A6;
+	font-size: 7pt;
+	font-weight: bold;
+	padding: 1px 5px 2px 5px;
+	margin-right: 3px;
+	margin-top: 2px;
+	
+	border-top: 1px #66aaff solid;
+	border-left:  1px #66aaff solid;						
+	border-bottom: 1px #113963 solid;
+	border-right:  1px #113963 solid;
+}
+
+	.default_portlet .portlet_subscribe a
+	{
+		color: #ffffff;
+	}
+
+.default_portlet .portlet_content
+{
+	margin: 7px 10px 7px 10px;
+}
+
+/* solid default */
+
+.default_portlet.solid .portlet_container
+{
+	background-color: #99CCFF;
+}
+
+.default_portlet.solid .portlet_content
+{
+	color: #1D60A6;
+}
+
+/*
+	---------------------------------------------------------------------------
+	Simple Theme.  Just plain simple divided and while backgroun
+	---------------------------------------------------------------------------
+*/
+
+.simple_portlet .portlet_content
+{
+	margin: 7px 10px 7px 10px;
+}
+
+.simple_portlet h2.portlet_title
+{
+	padding-left: 3px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #1B5896;	
+	font-size: 10pt;
+	font-weight: bold;
+	border-bottom: 2px #16497C solid;
+}
+
+.simple_portlet .portlet_subscribe
+{
+	float: right;
+	font-size: 10pt;
+	font-weight: bold;
+	padding: 1px 5px 2px 5px;
+	margin-right: 1px;
+	margin-top: 4px;
+}
+
+.simple_portlet .portlet_subscribe a
+{
+	color: #666666;
+}
+
+
+/*
+	===========================================================================
+	MIXINS: Use these class mixins to alter some basic parameters of one of the
+	above themes.
+	
+	Combine a mixin with an portlet theme to achieve an effect.  Not all mixins
+	make sense with all themes.  Use them like this:
+	
+	<div class="default_portlet headless_portlet" >
+	===========================================================================
+
+	---------------------------------------------------------------------------
+	HEADLESS MIXIN:  Just show the content stuff with no borders or margins. 
+	Keeps the default space at the bottom of the container.
+	---------------------------------------------------------------------------
+*/
+
+.headless_portlet .portlet_head,
+.headless .portlet_head
+{
+	display: none;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	No decoration MIXIN: Remove all border effects and header and set the back
+	ground color to null (let whatever show through).
+	---------------------------------------------------------------------------
+*/
+
+.no_decoration .portlet_head
+{
+	display: none;
+}
+
+.default_portlet.no_decoration .portlet_container,
+.simple_portlet.no_decoration .portlet_container
+{
+	border: 0px;
+	background: none;
+}
+
+.no_decoration .portlet_content
+{
+	border: 0px;
+	background: none;
+}
+
+/*
+	---------------------------------------------------------------------------
+	FLUSH-PADDING MIXIN:  Use this mixin to remove the internal padding for the
+	portal_content class that most portlet themes define.
+	---------------------------------------------------------------------------
+*/
+
+.nopadding .portlet_content
+{
+	margin: 0px;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	1px-PADDING MIXIN:  Use this mixin to set 1px internal padding for the
+	portal_content class that most portlet themes define.
+	---------------------------------------------------------------------------
+*/
+
+.onepixelpad .portlet_content
+{
+	margin: 1px;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	2px-PADDING MIXIN:  Use this mixin to set 1px internal padding for the
+	portal_content class that most portlet themes define.
+	---------------------------------------------------------------------------
+*/
+
+.twopixelpad .portlet_content
+{
+	margin:2px;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	UPPERCASE TITLE MIXIN: Forces the text in the portlet title area to upcase
+	---------------------------------------------------------------------------
+*/
+
+.uppercase_title .portlet_title
+{
+	text-transform: uppercase;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	LOWERCASE TITLE MIXIN: Forces the text in the portlet title area to lowercase
+	---------------------------------------------------------------------------
+*/
+
+.lowercase_title .portlet_title
+{
+	text-transform: lowercase;
+}
+
+/*
+	---------------------------------------------------------------------------
+	TITLECASE TITLE MIXIN: Forces the text in the portlet title area to title
+	---------------------------------------------------------------------------
+*/
+
+.titlecase_title .portlet_title
+{
+	text-transform: capitalize;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	WHITE TITLE COLOR:  Force the title color to be white (not always good idea)
+	---------------------------------------------------------------------------
+*/
+
+.title_white .portlet_title
+{
+	color: #ffffff;
+}
+
+/*
+	---------------------------------------------------------------------------
+	SUBSCRIBABLE PORLET MIXIN: Shows the subscribe button in the theme location
+	---------------------------------------------------------------------------
+*/
+
+.subscribable .portlet_subscribe
+{
+	/* By default this is not shown for now */
+	display: block;
+}
+
+/*
+	---------------------------------------------------------------------------
+	DOTTED BORDER PORLET MIXIN: Make the enclosing border (if exists) dotted
+	---------------------------------------------------------------------------
+*/
+
+.dotted_border .portlet_container
+{
+	border-style: dotted;
+}
+
+/*
+	---------------------------------------------------------------------------
+	CENTER TITLE: Center the portlet title
+	---------------------------------------------------------------------------
+*/
+
+.title_centered .portlet_title
+{
+	text-align: center;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	BIGGER mixin, make the header bigger and standout.
+	---------------------------------------------------------------------------
+*/
+
+.bigger h2.portlet_title
+{
+	font-size: large;
+	padding-bottom: 6px;
+}
+
+/*
+	---------------------------------------------------------------------------
+	CENTER CONTENT: Center the portlet content area.  Might be better off 
+	putting this into portlet specific code.  In general everything inside the
+	content area is styled with a portlet specific style.  This might not give
+	you the desired effect if your content has block displayed elements that
+	are floated, for example.
+	---------------------------------------------------------------------------
+*/
+
+.content_centered .portlet_content
+{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*
+	===========================================================================
+	COLOR MIXINS: Take the default, big or fancy style/layout and color it 
+	===========================================================================
+	
+	---------------------------------------------------------------------------
+	gold mixin, a nice shade of golds.
+	---------------------------------------------------------------------------
+*/
+
+.gold .portlet_container
+{
+	background-color: #ffffff;
+	border-color: #dac874;
+}
+
+.gold h2.portlet_title
+{
+
+	color: #776C40;	
+	background-color: #dac874;
+}
+
+.gold .portlet_subscribe
+{
+	background-color: #776C40;
+	border-color: #ffffff;
+}
+
+	.gold .portlet_subscribe a
+	{
+		color: white;
+	}
+	
+.gold .portlet_content
+{
+	color: #000000;
+}
+
+.big_portlet.gold .portlet_container
+{
+	border-color: #776C40;
+}
+
+/* solid gold */
+
+.gold.solid .portlet_container
+{
+	background-color: #dac874;
+}
+
+/*
+	---------------------------------------------------------------------------
+	DARKBLUE MIXIN:  Similar to the default theme but with all dark blue
+	---------------------------------------------------------------------------
+*/
+
+.darkblue .portlet_container
+{
+	background: #ffffff;
+	border-color: #1D60A6;
+}
+
+.darkblue h2.portlet_title
+{
+	color: #ffffff;	
+	background-color: #1D60A6;
+}
+
+.darkblue .portlet_subscribe
+{
+	background-color: #776C40;
+	border-color: #ffffff;
+}
+
+	.darkblue .portlet_subscribe a
+	{
+		color: white;
+	}
+	
+.darkblue .portlet_content
+{
+	color: #000000;
+}
+
+/* solid darkblue */
+
+.darkblue.solid .portlet_container
+{
+	background-color: #1D60A6;
+}
+
+.darkblue.solid .portlet_content
+{
+	color: #ffffff;
+}
+
+/*
+	---------------------------------------------------------------------------
+	DarkerBlue Color MIXIN:  Similar to the default theme but purple color
+	---------------------------------------------------------------------------
+*/
+
+.darkerblue .portlet_container
+{
+	background: #ffffff;
+	border-color: #0D3161;
+}
+
+.darkerblue h2.portlet_title
+{
+	color: #ffffff;
+	background-color: #0D3161;
+}
+
+.darkerblue .portlet_subscribe
+{
+	background-color: #0D3161;
+	border-color: #ffffff;
+}
+
+	.purple .portlet_subscribe a
+	{
+		color: #ffffff;
+	}
+	
+
+/* solid purple */
+
+.darkerblue.solid .portlet_container
+{
+	background-color: #0D3161;
+}
+
+.darkerblue.solid .portlet_content
+{
+	color: #ffffff;
+}
+
+/*
+	---------------------------------------------------------------------------
+	Red Color MIXIN:  Similar to the default theme but purple color
+	---------------------------------------------------------------------------
+*/
+
+.red .portlet_container
+{
+	background: #ffffff;
+	border-color: #f03933;
+}
+
+.red h2.portlet_title
+{
+	color: #ffffff;
+	background-color: #f03933;
+}
+
+.red .portlet_subscribe
+{
+	background-color: #B47DB7;
+	border-color: #ffffff;
+}
+
+	.purple .portlet_subscribe a
+	{
+		color: white;
+	}
+	
+
+/* solid purple */
+
+.red.solid .portlet_container
+{
+	background-color: #f03933;
+}
+
+.red.solid .portlet_content
+{
+	color: #ffffff;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	Purple Color MIXIN:  Similar to the default theme but purple color
+	---------------------------------------------------------------------------
+*/
+
+.purple .portlet_container
+{
+	background: #ffffff;
+	border-color: #B47DB7;
+}
+
+.purple h2.portlet_title
+{
+	color: #ffffff;	
+	background-color: #B47DB7;
+}
+
+.purple .portlet_subscribe
+{
+	background-color: #B47DB7;
+	border-color: #ffffff;
+}
+
+	.purple .portlet_subscribe a
+	{
+		color: white;
+	}
+	
+.purple .portlet_content
+{
+	color: #000000;
+}
+
+/* solid purple */
+
+.purple.solid .portlet_container
+{
+	background-color: #B47DB7;
+}
+
+.purple.solid .portlet_content
+{
+	color: #ffffff;
+}
+
+/*
+	---------------------------------------------------------------------------
+	Green Color MIXIN:  Similar to the default theme but green color
+	---------------------------------------------------------------------------
+*/
+
+.green .portlet_container
+{
+	background: #ffffff;
+	border-color: #8EC243;
+}
+
+.green h2.portlet_title
+{
+	color: #ffffff;	
+	background-color: #8EC243;
+}
+
+.green .portlet_subscribe
+{
+	background-color: #8EC243;
+	border-color: #ffffff;
+}
+
+	.green .portlet_subscribe a
+	{
+		color: white;
+	}
+	
+.green .portlet_content,
+.green .portlet_content a
+{
+	/*color: #445B20;*/
+}
+
+/* solid green */
+
+.green.solid .portlet_container
+{
+	background-color: #8EC243;
+}
+
+.green.solid .portlet_content
+{
+	color: #ffffff;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	Orange Color MIXIN:  Similar to the default theme but green color
+	---------------------------------------------------------------------------
+*/
+
+.orange .portlet_container
+{
+	background: #ffffff;
+	border-color: #FB9914;
+}
+
+.orange h2.portlet_title
+{
+	color: #ffffff;	
+	background-color: #FB9914;
+}
+
+.orange .portlet_subscribe
+{
+	background-color: #FB9914;
+	border-color: #ffffff;
+}
+
+	.orange .portlet_subscribe a
+	{
+		color: white;
+	}
+	
+.orange .portlet_content
+{
+	border-color: #724309;
+}
+
+/* solid orange */
+
+.orange.solid .portlet_container
+{
+	background-color: #FB9914;
+}
+
+.orange.solid .portlet_content
+{
+	color: #ffffff;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	grey Color MIXIN:  Similar to the default theme but grey color
+	---------------------------------------------------------------------------
+*/
+
+.grey .portlet_container
+{
+	background: #ffffff;
+	border-color: #999999;
+}
+
+.grey h2.portlet_title
+{
+	color: #ffffff;	
+	background-color: #999999;
+}
+
+.grey .portlet_subscribe
+{
+	background-color: #999999;
+	border-color: #ffffff;
+}
+
+	.grey .portlet_subscribe a
+	{
+		color: white;
+	}
+	
+.grey .portlet_content
+{
+	color: #000000;
+}
+
+/* solid grey */
+
+.grey.solid .portlet_container
+{
+	background-color: #999999;
+}
+
+.grey.solid .portlet_content
+{
+	color: #ffffff;
+}
+
+
+/*
+	---------------------------------------------------------------------------
+	WHITE color Mixins
+	---------------------------------------------------------------------------
+*/
+
+.white .portlet_container
+{
+	background: #ffffff;
+	border-color: #eaeaea;
+}
+
+.white .portlet_head
+{
+	border-bottom: 1px solid #eaeaea;
+}
+
+.white h2.portlet_title
+{
+	color: #606060;	
+	background-color: #ffffff;
+}
+
+.white .portlet_subscribe
+{
+	background-color: #999999;
+	border-color: #ffffff;
+}
+
+	.white .portlet_subscribe a
+	{
+		color: #999999;
+	}
+
+.white .portlet_content
+{
+	color: #000000;
+}
+
+/* solid white */
+
+
+.white h2.portlet_title
+{
+	border-bottom: 1px white solid;
+}
+
+.white.solid .portlet_container
+{
+	background-color: white;
+}
+
+.white.solid .portlet_content
+{
+	color: #999999;
+}
+
+
+
+

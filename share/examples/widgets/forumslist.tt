@@ -1,0 +1,39 @@
+[% BLOCK forums %]
+ 
+ <div id="pop-forums" class="default_portlet nopadding standard_right_gutter">
+ <div class="portlet_container">
+ <div class="portlet_content">
+ <table class="default_table">
+ <tr>
+ <th>Forum</th>
+ <th>Post Title</th>
+ </tr>
+ <tr>
+ <td>Contestants</td>
+ <td>
+ <a>Creating Videos</a>
+ </td>
+ </tr>
+ <tr>
+ <td>Meet and Greet</td>
+ <td>
+ <a>Hi I am John.</a>
+ </td>
+ </tr>
+ <tr>
+ <td>Comments</td>
+ <td>
+ <a>Great Site</a>
+ </td>
+ </tr>
+ <tr>
+ <td>Members</td>
+ <td>
+ <a>Question about Kobo points</a>
+ </td>
+ </tr>
+ </table>
+ </div>
+ </div>
+
+[% END %]

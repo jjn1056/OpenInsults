@@ -1,0 +1,107 @@
+/*
+	===========================================================================
+	'page.css' sets the style for tags, classes and id's that can be found
+	exclusively on the page template.
+	===========================================================================
+
+	---------------------------------------------------------------------------
+	Set the general proportions of the website.
+	---------------------------------------------------------------------------
+*/	
+
+.normal_content_width
+{
+	width: 1010px;
+}
+
+
+#banner,
+#menu,
+#content,
+#footer
+{
+	border: 0;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left; 		/* reset the IE Hack to center stuff, see 'global.css'. */		
+}
+
+#banner
+{
+	background: #f4f4f4;
+	margin-bottom: 0px;
+	padding-bottom: 10px;	
+}
+	
+	#banner h1
+	{
+		margin: 0;
+		padding: 0;
+		background: #fafafa;
+		display: none;
+	}
+	
+	#banner #branding
+	{
+		margin: 0;
+		padding: 0;
+		background: #fafafa;
+		clear: both;
+	}
+	
+	#banner #branding img.logo
+	{
+		height: 55px;
+		width: 321px;
+	}
+	
+	#banner #access_control
+	{
+		float:right;
+		list-style-type: none;
+		margin-top: 2px;
+		margin-bottom: 5px;
+		margin-right:10px;
+	}
+	
+	#banner #access_control li
+	{
+		display:inline;
+		padding-right: 1px;
+		padding-left: 14px;
+		background-image: url(img/access_divider.gif);
+		background-repeat: no-repeat;
+		background-position: 0px 6px;
+	}
+	
+	#banner #access_control li.first
+	{
+		background-image: none
+	}
+
+#content
+{
+	background: #fafafa;
+	padding-top:5px;
+	/* overflow: hidden; */
+}
+
+#footer
+{
+	clear: both;
+	background: #f4f4f4;
+	text-align: center;
+	font-size: 10px;
+	color: #a0a0a0;
+	border-top: 1px #b0b0b0 dotted;
+	border-bottom: 1px #b0b0b0 dotted;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	margin-bottom: 9px;
+
+}
+
+#footer a
+{
+	color: #707070;
+}
