@@ -6,12 +6,15 @@ use inc::Module::Install;
 
 requires 'parent';
 requires 'namespace::autoclean';
+requires 'Text::Xslate';
 requires 'Catalyst::Runtime';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::Model::DBIC::Schema';
 requires 'Catalyst::Controller::ActionRole';
 requires 'Catalyst::TraitFor::Model::DBIC::Schema::QueryLog::AdoptPlack';
+requires 'Catalyst::View::CSS::Minifier::XS';
+requires 'Catalyst::View::Xslate';
 requires 'DBIx::Class';
 requires 'DBIx::Class::Helpers';
 requires 'DBIx::Class::DynamicDefault';
@@ -27,6 +30,7 @@ requires 'Plack::Middleware::Debug';
 requires 'Data::UUID::Base64URLSafe';
 requires 'Method::Signatures::Simple';
 requires 'Syntax::Feature::Method';
+requires 'Text::Xslate::Bridge::TT2Like';
 
 test_requires 'DateTime';
 test_requires 'Test::Most';

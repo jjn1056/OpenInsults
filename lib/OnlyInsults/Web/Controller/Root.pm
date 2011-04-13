@@ -2,22 +2,37 @@ package OnlyInsults::Web::Controller::Root;
 
 use OnlyInsults::Web::Controller;
 
-__PACKAGE__->config(namespace => '');
-
 method global_start : Chained('/') PathPart('') CaptureArgs(0) {}
 
-  method welcome($ctx) : Chained(global_start) PathPart('') Args(0)
+  method welcome($ctx)
+  : Chained('global_start') PathPart('') Args(0)
   {
     $ctx->response->body( $ctx->welcome_message );
   }
 
-  method video($ctx) : Chained(global_start) Args(0)
+  method video($ctx)
+  : Chained('global_start') Args(0)
   {
-    my $body = $ctx->view('HTML')->video($ctx, {a=>100});
-    $ctx->res->body($body);
+    $ctx->stash(a=>100);
   }
 
-method end : ActionClass(RenderView) {}
+  method css($ctx)
+  :Chained('global_start') Args(0)
+  {
+    $ctx->stash(
+      current_view => 'CSS',
+      css => ['global.css', 'page.css', 'layouts.css', 
+      'bits.css', 'forms.css', 'debug.css', 'portlet.css'],
+    );
+  }
+
+  method error_404($ctx)
+  : Chained('global_start') PathPart('') Args
+  {
+    $ctx->go('/error/not_found');
+  }
+
+method end : ActionClass('RenderView') {}
 
 __PACKAGE__->meta->make_immutable;
 

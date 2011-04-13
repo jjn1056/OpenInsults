@@ -21,8 +21,13 @@
 	},
   },
   'View::HTML' => {
-    root =>  '__path_to(share,templates)__',
-    template_extension => 'html',
+    path =>  ['__path_to(share,templates)__'],
+    module => [
+      'Text::Xslate::Bridge::TT2Like',
+    ],
+  },
+  'View::CSS' => {
+    path => '__path_to(share,static,css)__',
   },
 };
 
