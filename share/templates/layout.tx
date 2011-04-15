@@ -6,7 +6,7 @@
     <title><: block title | trim -> { :>Default Title<: } :></title>
     <link rel="stylesheet" href="<: $url_for_css() :>" type="text/css" />
   </head>
-  <body>
+  <body id="content">
     <div id="banner">
       <ol id="access_control">
         <li class="first"><a href="#">Login or Status</a></li>

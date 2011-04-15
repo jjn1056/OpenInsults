@@ -8,12 +8,6 @@ use Plack::App::Directory;
 use OnlyInsults::Web;
 
 builder {
-  mount '/examples', builder {
-    Plack::App::Directory
-      ->new(root => OnlyInsults::Web->path_to('share','examples'))
-      ->to_app;
-
-  },
   mount '/static', builder {
     Plack::App::Directory
       ->new(root => OnlyInsults::Web->path_to('share','static'))

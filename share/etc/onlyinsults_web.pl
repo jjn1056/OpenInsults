@@ -12,7 +12,7 @@ my $conf = {
   )],
   'Controller::Root' => {
     namespace => '',
-    core_stylesheets => ['global.css', 'page.css', 'layouts.css', 'menu_bar.css',
+    core_stylesheets => ['global.css', 'page.css', 'layouts.css',
       'bits.css', 'forms.css', 'debug.css', 'portlet.css'],
     default_landing_action => '/home/welcome_visitor',
   },
