@@ -7,7 +7,6 @@ use OnlyInsults::Web;
 ok (
   my $cb = sub {
     $_[0]->(GET '/'); ## TODO Add more URLs that might leak
-    $_[0]->(GET '/video');
   },
   'Created callback function for test_psgi',
 );

@@ -1,7 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <html>
   <head>
     <title><: block title | trim -> { :>Default Title<: } :></title>
     <link rel="stylesheet" href="<: $url_for_css() :>" type="text/css" />
   </head>
-  <body><: block body -> { :>Default Body<: } :></body>
+  <body>
+    <div id="banner">
+      <ol id="access_control">
+        <li class="first"><a href="#">Login or Status</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">help</a></li>						
+      </ol>	
+      <div id="branding">
+        <a href="#"><img class="logo" src="#" alt="Only Insults Logo" /></a>
+      </div>
+    </div>
+    <: block body -> { :>You Forgot to override the body block!<: } :>
+    <div id="footer">
+      Use of this site constitutes your acceptance of the <a href="#">Terms sof Use</a> 
+      and the <a href="#">Privacy Policy</a>. <br />
+      &copy; 2011 Creatively Insulted, All Rights Reserved.				
+    </div>
+  </body>
 </html>

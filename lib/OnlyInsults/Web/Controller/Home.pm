@@ -1,40 +1,14 @@
-package OnlyInsults::Web::Controller::Root;
+package OnlyInsults::Web::Controller::Home;
 
 use OnlyInsults::Web::Controller;
 
-has default_landing_action => (is=>'ro', required=>1);
-has core_stylesheets => (is=>'ro', required=>1);
+method start : Chained('/global_start') PathPart('home') CaptureArgs(0) {}
 
-method global_start : Chained('/') PathPart('') CaptureArgs(0) {}
-
-  method choose_landing($ctx)
-  : Chained('global_start') PathPart('') Args(0)
+  method welcome_visitor($ctx)
+  : Chained('start') PathPart('') Args(0)
   {
-    $ctx->go('/redirect_to_default_landing')
+    $ctx->stash(a=>100);
   }
-
-  method css($ctx)
-  :Chained('global_start') Args(0)
-  {
-    $ctx->stash(
-      current_view => 'CSS',
-      css => $self->core_stylesheets,
-    );
-  }
-
-  method error_404($ctx)
-  : Chained('global_start') PathPart('') Args
-  {
-    $ctx->go('/error/not_found');
-  }
-
-method redirect_to_default_landing($ctx) :Private
-{
-  my $target = $ctx->uri_for_action($self->default_landing_action);
-  $ctx->response->redirect($target);
-}
-
-method end : ActionClass('RenderView') {}
 
 __PACKAGE__->meta->make_immutable;
 
@@ -57,7 +31,7 @@ Everything hits this action, it defines the root of the web application.
 Anything that always needs to happen needs to go here (but use care, since
 anything here always gets executed.)
 
-=head2 choose_landing
+=head2 choose_landing 
 
 When a user hits the site we send them to the 'anonymous visitor is welcome'
 page or the logged in user home page.  This is a redirect.

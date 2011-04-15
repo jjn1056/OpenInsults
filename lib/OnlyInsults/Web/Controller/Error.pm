@@ -2,22 +2,20 @@ package OnlyInsults::Web::Controller::Error;
 
 use OnlyInsults::Web::Controller;
 
-method start : Chained('/global_start') PathPart('') CaptureArgs(0) {}
+method not_found($ctx) :Private {
+  $ctx->stash(missing => scalar($ctx->request->uri));
+  $ctx->response->status(404);
+}
 
-  method not_found($ctx) :Chained('start') Args {
-    $ctx->stash(missing => scalar($ctx->request->uri));
-    $ctx->response->status(404);
-  }
-
-  method unauthorized($ctx) :Chained('start')  Args {
-    $ctx->stash(blocked => scalar($ctx->request->uri));
-    $ctx->response->status(401);
-  }
+method unauthorized($ctx) :Private {
+  $ctx->stash(blocked => scalar($ctx->request->uri));
+  $ctx->response->status(401);
+}
 
 
-  method internal_error($ctx) :Chained('start')  Args {
-    $ctx->response->status(500);
-  }
+method internal_error($ctx) :Private {
+  $ctx->response->status(500);
+}
 
 __PACKAGE__->meta->make_immutable;
 
@@ -39,15 +37,15 @@ Base of the controller
 
 =head2 not_found
 
-    TBD
+Handle the generic not found case
 
 =head2 unauthorized
 
-    TBD
+Handle the case when the user is not allowed to do something
 
 =head2 internal_error
 
-    TBD
+The "I don't know what happened."
 
 =head1 AUTHOR
 
