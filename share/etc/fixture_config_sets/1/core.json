@@ -9,12 +9,12 @@
       { "class" : "User",
         "quantity" : "all"
       },
-      { "class" : "Role,
+      { "class" : "Role",
         "quantity" : "all"
       },
       { "class" : "UserRole",
         "quantity" : "all"
-      },
+      }
    ]
 }
 
