@@ -4,7 +4,11 @@ our $VERSION = '0.01';
 
 use Moose;
 use Catalyst qw/
-    ConfigLoader
+  ConfigLoader
+  Cache
+  Session
+  Session::Store::FastMmap
+  Session::State::Cookie
 /;
 
 extends 'Catalyst';

@@ -14,8 +14,12 @@ builder {
       ->to_app;
   },
   mount '/', builder {
-    enable 'StackTrace';
-    enable 'Debug', panels => OnlyInsults::Web->config->{debug_panels};
+    enable_if {
+      OnlyInsults::Web->debug;
+    } 'StackTrace';
+    enable_if {
+      OnlyInsults::Web->debug; 
+    } 'Debug', panels => OnlyInsults::Web->config->{debug_panels};
     OnlyInsults::Web->psgi_app;
   };
 };

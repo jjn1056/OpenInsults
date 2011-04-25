@@ -1,4 +1,10 @@
 :cascade layout
 :override title -> {
-    The awesome new Video Page!
+    Welcome, Welcome Friend!
+:}
+:override body -> {
+    <h1>Things to see here</h1>
+    <ul>
+      <li><a href="#">List of Videos</a></li>
+    </ul>
 :}

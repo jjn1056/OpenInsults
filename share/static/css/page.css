@@ -14,9 +14,7 @@
 	width: 1010px;
 }
 
-
 #banner,
-#menu,
 #content,
 #footer
 {
@@ -26,59 +24,24 @@
 	text-align: left; 		/* reset the IE Hack to center stuff, see 'global.css'. */		
 }
 
-#banner
+#menubar
 {
 	background: #f4f4f4;
-	margin-bottom: 0px;
-	padding-bottom: 10px;	
+    margin-left:0;
+    padding-top: .2em;
+    padding-bottom: .25em;
+    padding-left:.5em;
 }
+    #menubar li
+    {
+        display: inline;
+        padding-right:.75em;
+    }
+    #menubar a
+    {
+        color: #707070;
+    }
 	
-	#banner h1
-	{
-		margin: 0;
-		padding: 0;
-		background: #fafafa;
-		display: none;
-	}
-	
-	#banner #branding
-	{
-		margin: 0;
-		padding: 0;
-		background: #fafafa;
-		clear: both;
-	}
-	
-	#banner #branding img.logo
-	{
-		height: 55px;
-		width: 321px;
-	}
-	
-	#banner #access_control
-	{
-		float:right;
-		list-style-type: none;
-		margin-top: 2px;
-		margin-bottom: 5px;
-		margin-right:10px;
-	}
-	
-	#banner #access_control li
-	{
-		display:inline;
-		padding-right: 1px;
-		padding-left: 14px;
-		background-image: url(/static/css/img/access_divider.gif);
-		background-repeat: no-repeat;
-		background-position: 0px 6px;
-	}
-	
-	#banner #access_control li.first
-	{
-		background-image: none
-	}
-
 #content
 {
 	background: #fafafa;
@@ -98,7 +61,6 @@
 	padding-top: 7px;
 	padding-bottom: 7px;
 	margin-bottom: 9px;
-
 }
 
 #footer a

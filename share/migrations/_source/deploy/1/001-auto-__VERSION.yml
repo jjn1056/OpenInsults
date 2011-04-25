@@ -1,0 +1,1036 @@
+---
+schema:
+  procedures: {}
+  tables:
+    dbix_class_deploymenthandler_versions:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - version
+          match_type: ''
+          name: dbix_class_deploymenthandler_versions_version
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: UNIQUE
+      fields:
+        ddl:
+          data_type: text
+          default_value: ~
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: ddl
+          order: 3
+          size:
+            - 0
+        id:
+          data_type: int
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: id
+          order: 1
+          size:
+            - 0
+        upgrade_sql:
+          data_type: text
+          default_value: ~
+          is_nullable: 1
+          is_primary_key: 0
+          is_unique: 0
+          name: upgrade_sql
+          order: 4
+          size:
+            - 0
+        version:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 1
+          name: version
+          order: 2
+          size:
+            - 50
+      indices: []
+      name: dbix_class_deploymenthandler_versions
+      options: []
+      order: 1
+  triggers: {}
+  views: {}
+translator:
+  add_drop_table: 0
+  filename: ~
+  no_comments: 0
+  parser_args:
+    package: &1 !!perl/hash:OnlyInsults::Schema
+      class_mappings:
+        DBIx::Class::DeploymentHandler::VersionStorage::Standard::VersionResult: __VERSION
+        OnlyInsults::Schema::Result::Contributor: Contributor
+        OnlyInsults::Schema::Result::Creator: Creator
+        OnlyInsults::Schema::Result::Language: Language
+        OnlyInsults::Schema::Result::Right: Right
+        OnlyInsults::Schema::Result::Role: Role
+        OnlyInsults::Schema::Result::Source: Source
+        OnlyInsults::Schema::Result::Status: Status
+        OnlyInsults::Schema::Result::Subject: Subject
+        OnlyInsults::Schema::Result::Tag: Tag
+        OnlyInsults::Schema::Result::User: User
+        OnlyInsults::Schema::Result::UserRole: UserRole
+        OnlyInsults::Schema::Result::Video: Video
+        OnlyInsults::Schema::Result::VideoContributor: VideoContributor
+        OnlyInsults::Schema::Result::VideoCreator: VideoCreator
+        OnlyInsults::Schema::Result::VideoRight: VideoRight
+        OnlyInsults::Schema::Result::VideoSource: VideoSource
+        OnlyInsults::Schema::Result::VideoSubject: VideoSubject
+        OnlyInsults::Schema::Result::VideoTag: VideoTag
+      source_registrations:
+        Contributor: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            contributor_id:
+              data_type: varchar
+              size: 22
+            note:
+              data_type: text
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - contributor_id
+            - note
+          _primaries: &2
+            - contributor_id
+          _relationships:
+            videos_contributor_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoContributor
+              cond:
+                foreign.contributor_id: self.contributor_id
+              source: OnlyInsults::Schema::Result::VideoContributor
+          _unique_constraints:
+            primary: *2
+          name: contributor
+          result_class: OnlyInsults::Schema::Result::Contributor
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Contributor
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Creator: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            creator_id:
+              data_type: varchar
+              size: 22
+            note:
+              data_type: text
+            uri:
+              data_type: varchar
+              size: 196
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - creator_id
+            - uri
+            - note
+          _primaries: &3
+            - creator_id
+          _relationships:
+            videos_creator_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoCreator
+              cond:
+                foreign.creator_id: self.creator_id
+              source: OnlyInsults::Schema::Result::VideoCreator
+          _unique_constraints:
+            primary: *3
+          name: creator
+          result_class: OnlyInsults::Schema::Result::Creator
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Creator
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Language: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            code_alpha2:
+              data_type: char
+              size: 2
+            language_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - language_id
+            - code_alpha2
+          _primaries: &4
+            - language_id
+          _relationships:
+            tags:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::Tag
+              cond:
+                foreign.language_id: self.language_id
+              source: OnlyInsults::Schema::Result::Tag
+            videos:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.language_id: self.language_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            language_code_alpha2:
+              - code_alpha2
+            primary: *4
+          name: language
+          result_class: OnlyInsults::Schema::Result::Language
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Language
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Right: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            clause:
+              data_type: varchar
+              size: 196
+            right_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - right_id
+            - clause
+          _primaries: &5
+            - right_id
+          _relationships:
+            videos_right_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoRight
+              cond:
+                foreign.right_id: self.right_id
+              source: OnlyInsults::Schema::Result::VideoRight
+          _unique_constraints:
+            primary: *5
+          name: right
+          result_class: OnlyInsults::Schema::Result::Right
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Right
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Role: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            description:
+              data_type: varchar
+              size: 64
+            role_id:
+              data_type: varchar
+              size: 22
+            title:
+              data_type: varchar
+              size: 24
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - role_id
+            - title
+            - description
+          _primaries: &6
+            - role_id
+          _relationships:
+            users_role_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::UserRole
+              cond:
+                foreign.role_id: self.role_id
+              source: OnlyInsults::Schema::Result::UserRole
+          _unique_constraints:
+            primary: *6
+            role_description:
+              - description
+            role_title:
+              - title
+          name: role
+          result_class: OnlyInsults::Schema::Result::Role
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Role
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Source: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            note:
+              data_type: text
+            source_id:
+              data_type: varchar
+              size: 22
+            uri:
+              data_type: varchar
+              size: 196
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - source_id
+            - uri
+            - note
+          _primaries: &7
+            - source_id
+          _relationships:
+            videos_source_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoSource
+              cond:
+                foreign.source_id: self.source_id
+              source: OnlyInsults::Schema::Result::VideoSource
+          _unique_constraints:
+            primary: *7
+          name: source
+          result_class: OnlyInsults::Schema::Result::Source
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Source
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Status: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            name:
+              data_type: varchar
+              size: 40
+            status_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - status_id
+            - name
+          _primaries: &8
+            - status_id
+          _relationships:
+            video_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.status_id: self.status_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            primary: *8
+            status_name:
+              - name
+          name: status
+          result_class: OnlyInsults::Schema::Result::Status
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Status
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Subject: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            comment:
+              data_type: text
+            label:
+              data_type: varchar
+              size: 40
+            subject_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - subject_id
+            - label
+            - comment
+          _primaries: &9
+            - subject_id
+          _relationships:
+            videos_subject_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoSubject
+              cond:
+                foreign.subject_id: self.subject_id
+              source: OnlyInsults::Schema::Result::VideoSubject
+          _unique_constraints:
+            primary: *9
+          name: subject
+          result_class: OnlyInsults::Schema::Result::Subject
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Subject
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Tag: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            created:
+              _ic_dt_method: datetime
+              _inflate_info:
+                deflate: !!perl/code '{ "DUMMY" }'
+                inflate: !!perl/code '{ "DUMMY" }'
+              data_type: datetime
+              dynamic_default_on_create: get_timestamp
+            language_id:
+              data_type: varchar
+              size: 36
+            tag_id:
+              data_type: varchar
+              size: 22
+            term:
+              data_type: varchar
+              size: 40
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - tag_id
+            - language_id
+            - term
+            - created
+          _primaries: &10
+            - tag_id
+          _relationships:
+            language:
+              attrs:
+                accessor: single
+                fk_columns:
+                  language_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Language
+              cond:
+                foreign.language_id: self.language_id
+              source: OnlyInsults::Schema::Result::Language
+            videos_tag_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoTag
+              cond:
+                foreign.tag_id: self.tag_id
+              source: OnlyInsults::Schema::Result::VideoTag
+          _unique_constraints:
+            primary: *10
+            tag_term:
+              - term
+          name: tag
+          result_class: OnlyInsults::Schema::Result::Tag
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Tag
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        User: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            created:
+              _ic_dt_method: datetime
+              _inflate_info:
+                deflate: !!perl/code '{ "DUMMY" }'
+                inflate: !!perl/code '{ "DUMMY" }'
+              data_type: datetime
+              dynamic_default_on_create: get_timestamp
+              dynamic_default_on_update: get_timestamp
+            email:
+              data_type: varchar
+              size: 96
+            user_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - user_id
+            - email
+            - created
+          _primaries: &11
+            - user_id
+          _relationships:
+            user_roles_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::UserRole
+              cond:
+                foreign.user_id: self.user_id
+              source: OnlyInsults::Schema::Result::UserRole
+          _unique_constraints:
+            primary: *11
+            user_email:
+              - email
+          name: user
+          result_class: OnlyInsults::Schema::Result::User
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::ResultSet::User
+          schema: *1
+          source_name: User
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        UserRole: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            role_id:
+              data_type: varchar
+              size: 22
+            user_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - user_id
+            - role_id
+          _primaries: &12
+            - user_id
+            - role_id
+          _relationships:
+            role:
+              attrs:
+                accessor: single
+                fk_columns:
+                  role_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Role
+              cond:
+                foreign.role_id: self.role_id
+              source: OnlyInsults::Schema::Result::Role
+            user:
+              attrs:
+                accessor: single
+                fk_columns:
+                  user_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::User
+              cond:
+                foreign.user_id: self.user_id
+              source: OnlyInsults::Schema::Result::User
+          _unique_constraints:
+            primary: *12
+          name: user_role
+          result_class: OnlyInsults::Schema::Result::UserRole
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: UserRole
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        Video: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            description:
+              data_type: varchar
+              size: 140
+            language_id:
+              data_type: varchar
+              size: 22
+            published_on_site:
+              _ic_dt_method: datetime
+              _inflate_info:
+                deflate: !!perl/code '{ "DUMMY" }'
+                inflate: !!perl/code '{ "DUMMY" }'
+              data_type: datetime
+            status_id:
+              data_type: varchar
+              size: 22
+            title:
+              data_type: varchar
+              size: 24
+            transcript:
+              data_type: text
+            video_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - video_id
+            - language_id
+            - status_id
+            - title
+            - description
+            - transcript
+            - published_on_site
+          _primaries: &13
+            - video_id
+          _relationships:
+            language:
+              attrs:
+                accessor: single
+                fk_columns:
+                  language_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Language
+              cond:
+                foreign.language_id: self.language_id
+              source: OnlyInsults::Schema::Result::Language
+            status:
+              attrs:
+                accessor: single
+                fk_columns:
+                  status_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Status
+              cond:
+                foreign.status_id: self.status_id
+              source: OnlyInsults::Schema::Result::Status
+            video_contributors_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoContributor
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::VideoContributor
+            video_creators_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoCreator
+              cond:
+                foreign.creator_id: self.video_id
+              source: OnlyInsults::Schema::Result::VideoCreator
+            video_rights_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoRight
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::VideoRight
+            video_sources_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoTag
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::VideoTag
+            video_subjects_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoSubject
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::VideoSubject
+            video_tags_rs:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: OnlyInsults::Schema::Result::VideoTag
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::VideoTag
+          _unique_constraints:
+            primary: *13
+          name: video
+          result_class: OnlyInsults::Schema::Result::Video
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: Video
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        VideoContributor: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            contributor_id:
+              data_type: varchar
+              size: 22
+            video_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - video_id
+            - contributor_id
+          _primaries: &14
+            - video_id
+            - contributor_id
+          _relationships:
+            contributor:
+              attrs:
+                accessor: single
+                fk_columns:
+                  contributor_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Contributor
+              cond:
+                foreign.contributor_id: self.contributor_id
+              source: OnlyInsults::Schema::Result::Contributor
+            video:
+              attrs:
+                accessor: single
+                fk_columns:
+                  video_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            primary: *14
+          name: video_contributor
+          result_class: OnlyInsults::Schema::Result::VideoContributor
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: VideoContributor
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        VideoCreator: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            creator_id:
+              data_type: varchar
+              size: 22
+            video_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - video_id
+            - creator_id
+          _primaries: &15
+            - video_id
+            - creator_id
+          _relationships:
+            creator:
+              attrs:
+                accessor: single
+                fk_columns:
+                  creator_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Creator
+              cond:
+                foreign.creator_id: self.creator_id
+              source: OnlyInsults::Schema::Result::Creator
+            video:
+              attrs:
+                accessor: single
+                fk_columns:
+                  video_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            primary: *15
+          name: video_creator
+          result_class: OnlyInsults::Schema::Result::VideoCreator
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: VideoCreator
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        VideoRight: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            right_id:
+              data_type: varchar
+              size: 22
+            video_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - video_id
+            - right_id
+          _primaries: &16
+            - video_id
+            - right_id
+          _relationships:
+            right:
+              attrs:
+                accessor: single
+                fk_columns:
+                  right_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Right
+              cond:
+                foreign.right_id: self.right_id
+              source: OnlyInsults::Schema::Result::Right
+            video:
+              attrs:
+                accessor: single
+                fk_columns:
+                  video_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            primary: *16
+          name: video_right
+          result_class: OnlyInsults::Schema::Result::VideoRight
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: VideoRight
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        VideoSource: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            source_id:
+              data_type: varchar
+              size: 22
+            video_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - video_id
+            - source_id
+          _primaries: &17
+            - video_id
+            - source_id
+          _relationships:
+            source:
+              attrs:
+                accessor: single
+                fk_columns:
+                  source_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Source
+              cond:
+                foreign.source_id: self.source_id
+              source: OnlyInsults::Schema::Result::Source
+            video:
+              attrs:
+                accessor: single
+                fk_columns:
+                  video_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            primary: *17
+          name: video_source
+          result_class: OnlyInsults::Schema::Result::VideoSource
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: VideoSource
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        VideoSubject: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            subject_id:
+              data_type: varchar
+              size: 22
+            video_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - video_id
+            - subject_id
+          _primaries: &18
+            - video_id
+            - subject_id
+          _relationships:
+            subject:
+              attrs:
+                accessor: single
+                fk_columns:
+                  subject_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Subject
+              cond:
+                foreign.subject_id: self.subject_id
+              source: OnlyInsults::Schema::Result::Subject
+            video:
+              attrs:
+                accessor: single
+                fk_columns:
+                  video_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            primary: *18
+          name: video_subject
+          result_class: OnlyInsults::Schema::Result::VideoSubject
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: VideoSubject
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        VideoTag: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            tag_id:
+              data_type: varchar
+              size: 22
+            video_id:
+              data_type: varchar
+              size: 22
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - video_id
+            - tag_id
+          _primaries: &19
+            - video_id
+            - tag_id
+          _relationships:
+            tag:
+              attrs:
+                accessor: single
+                fk_columns:
+                  tag_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Tag
+              cond:
+                foreign.tag_id: self.tag_id
+              source: OnlyInsults::Schema::Result::Tag
+            video:
+              attrs:
+                accessor: single
+                fk_columns:
+                  video_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: OnlyInsults::Schema::Result::Video
+              cond:
+                foreign.video_id: self.video_id
+              source: OnlyInsults::Schema::Result::Video
+          _unique_constraints:
+            primary: *19
+          name: video_tag
+          result_class: OnlyInsults::Schema::Result::VideoTag
+          resultset_attributes: {}
+          resultset_class: OnlyInsults::Schema::DefaultRS
+          schema: *1
+          source_name: VideoTag
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+        __VERSION: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            ddl:
+              data_type: text
+              is_nullable: 1
+            id:
+              data_type: int
+              is_auto_increment: 1
+            upgrade_sql:
+              data_type: text
+              is_nullable: 1
+            version:
+              data_type: varchar
+              size: 50
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - id
+            - version
+            - ddl
+            - upgrade_sql
+          _primaries: &20
+            - id
+          _relationships: {}
+          _unique_constraints:
+            dbix_class_deploymenthandler_versions_version:
+              - version
+            primary: *20
+          name: dbix_class_deploymenthandler_versions
+          result_class: DBIx::Class::DeploymentHandler::VersionStorage::Standard::VersionResult
+          resultset_attributes: {}
+          resultset_class: DBIx::Class::DeploymentHandler::VersionStorage::Standard::VersionResultSet
+          schema: *1
+          source_name: __VERSION
+          sqlt_deploy_callback: default_sqlt_deploy_hook
+      storage: !!perl/hash:DBIx::Class::Storage::DBI
+        _connect_info:
+          - cursor_class: DBIx::Class::Cursor::Cached
+            dsn: dbi:SQLite:dbname=/Users/johnn/Library/Application Support/Perl/dist/OnlyInsults-Web/var/sqlite.db
+            on_connect_do: &21
+              - PRAGMA foreign_keys = ON
+        _dbh_details: {}
+        _dbh_gen: 0
+        _dbi_connect_info:
+          - dbi:SQLite:dbname=/Users/johnn/Library/Application Support/Perl/dist/OnlyInsults-Web/var/sqlite.db
+          - ~
+          - ~
+          - &22
+            AutoCommit: 1
+            PrintError: 0
+            RaiseError: 1
+            ShowErrorStatement: 1
+        _dbic_connect_attributes: *22
+        _in_dbh_do: 0
+        _sql_maker: ~
+        _sql_maker_opts: {}
+        cursor_class: DBIx::Class::Cursor::Cached
+        on_connect_do: *21
+        savepoints: []
+        schema: *1
+        transaction_depth: 0
+    sources:
+      - __VERSION
+  parser_type: SQL::Translator::Parser::DBIx::Class
+  producer_args: {}
+  producer_type: SQL::Translator::Producer::YAML
+  show_warnings: 0
+  trace: 0
+  version: 0.11007
