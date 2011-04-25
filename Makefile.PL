@@ -14,6 +14,8 @@ requires 'Catalyst::Plugin::Session';
 requires 'Catalyst::Plugin::Session::Store::FastMmap';
 requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::Action::RenderView';
+requires 'Catalyst::Action::REST';
+requires 'Catalyst::ActionRole::BuildDBICResult'; 
 requires 'Catalyst::Model::DBIC::Schema';
 requires 'Catalyst::Controller::ActionRole';
 requires 'Catalyst::TraitFor::Model::DBIC::Schema::QueryLog::AdoptPlack';
