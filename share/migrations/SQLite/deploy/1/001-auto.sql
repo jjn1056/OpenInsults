@@ -1,6 +1,6 @@
 -- 
 -- Created by SQL::Translator::Producer::SQLite
--- Created on Mon Apr 25 16:48:15 2011
+-- Created on Mon Apr 25 17:20:16 2011
 -- 
 
 ;
@@ -28,7 +28,8 @@ CREATE TABLE creator (
 CREATE TABLE language (
   language_id varchar(22) NOT NULL,
   code_alpha2 char(2) NOT NULL,
-  PRIMARY KEY (language_id)
+  en_translation varchar(64) NOT NULL,
+  PRIMARY KEY (en_translation)
 );
 CREATE UNIQUE INDEX language_code_alpha2 ON language (code_alpha2);
 --

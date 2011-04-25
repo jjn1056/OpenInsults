@@ -16,9 +16,9 @@ sub install {
 sub _install_languages {
   my $self = shift;
   $self->schema->populate('Language',[
-    ['language_id', 'code_alpha2'], 
+    ['language_id', 'code_alpha2', 'en_translation'], 
     map {
-      [$self->schema->uuid, $_]
+      [$self->schema->uuid, $_, code2language($_)]
     } all_language_codes('alpha2'),
   ]);
 }

@@ -95,7 +95,7 @@ schema:
         - deferrable: 1
           expression: ''
           fields:
-            - language_id
+            - en_translation
           match_type: ''
           name: ''
           on_delete: ''
@@ -127,11 +127,21 @@ schema:
           order: 2
           size:
             - 2
-        language_id:
+        en_translation:
           data_type: varchar
           default_value: ~
           is_nullable: 0
           is_primary_key: 1
+          is_unique: 0
+          name: en_translation
+          order: 3
+          size:
+            - 64
+        language_id:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
           is_unique: 0
           name: language_id
           order: 1
@@ -438,7 +448,7 @@ schema:
           on_update: CASCADE
           options: []
           reference_fields:
-            - language_id
+            - en_translation
           reference_table: language
           type: FOREIGN KEY
       fields:
@@ -652,7 +662,7 @@ schema:
           on_update: CASCADE
           options: []
           reference_fields:
-            - language_id
+            - en_translation
           reference_table: language
           type: FOREIGN KEY
         - deferrable: 1
@@ -1313,6 +1323,9 @@ translator:
             code_alpha2:
               data_type: char
               size: 2
+            en_translation:
+              data_type: varchar
+              size: 64
             language_id:
               data_type: varchar
               size: 22
@@ -1320,8 +1333,9 @@ translator:
           _ordered_columns:
             - language_id
             - code_alpha2
+            - en_translation
           _primaries: &4
-            - language_id
+            - en_translation
           _relationships:
             tags:
               attrs:
@@ -1331,7 +1345,7 @@ translator:
                 join_type: LEFT
               class: OnlyInsults::Schema::Result::Tag
               cond:
-                foreign.language_id: self.language_id
+                foreign.language_id: self.en_translation
               source: OnlyInsults::Schema::Result::Tag
             videos:
               attrs:
@@ -1341,7 +1355,7 @@ translator:
                 join_type: LEFT
               class: OnlyInsults::Schema::Result::Video
               cond:
-                foreign.language_id: self.language_id
+                foreign.language_id: self.en_translation
               source: OnlyInsults::Schema::Result::Video
           _unique_constraints:
             language_code_alpha2:
@@ -1576,7 +1590,7 @@ translator:
                 undef_on_null_fk: 1
               class: OnlyInsults::Schema::Result::Language
               cond:
-                foreign.language_id: self.language_id
+                foreign.en_translation: self.language_id
               source: OnlyInsults::Schema::Result::Language
             videos_tag_rs:
               attrs:
@@ -1737,7 +1751,7 @@ translator:
                 undef_on_null_fk: 1
               class: OnlyInsults::Schema::Result::Language
               cond:
-                foreign.language_id: self.language_id
+                foreign.en_translation: self.language_id
               source: OnlyInsults::Schema::Result::Language
             status:
               attrs:

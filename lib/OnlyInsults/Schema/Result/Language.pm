@@ -6,15 +6,21 @@ table 'language';
 
 column language_id => {
   data_type => 'varchar',
-  size => '22',
+  size => 22,
 };
 
 column code_alpha2 => {
   data_type => 'char',
-  size => '2',
+  size => 2,
+};
+
+column en_translation => {
+  data_type => 'varchar',
+  size => 64,
 };
 
 primary_key 'language_id';
+primary_key 'en_translation';
 
 unique_constraint ['code_alpha2'];
 

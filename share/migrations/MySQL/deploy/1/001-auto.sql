@@ -1,6 +1,6 @@
 -- 
 -- Created by SQL::Translator::Producer::MySQL
--- Created on Mon Apr 25 16:48:15 2011
+-- Created on Mon Apr 25 17:20:17 2011
 -- 
 ;
 SET foreign_key_checks=0;
@@ -27,7 +27,8 @@ CREATE TABLE `creator` (
 CREATE TABLE `language` (
   `language_id` varchar(22) NOT NULL,
   `code_alpha2` char(2) NOT NULL,
-  PRIMARY KEY (`language_id`),
+  `en_translation` varchar(64) NOT NULL,
+  PRIMARY KEY (`en_translation`),
   UNIQUE `language_code_alpha2` (`code_alpha2`)
 ) ENGINE=InnoDB;
 --
@@ -97,7 +98,7 @@ CREATE TABLE `tag` (
   INDEX `tag_idx_language_id` (`language_id`),
   PRIMARY KEY (`tag_id`),
   UNIQUE `tag_term` (`term`),
-  CONSTRAINT `tag_fk_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `tag_fk_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`en_translation`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 --
 -- Table: `user_role`
@@ -125,7 +126,7 @@ CREATE TABLE `video` (
   INDEX `video_idx_language_id` (`language_id`),
   INDEX `video_idx_status_id` (`status_id`),
   PRIMARY KEY (`video_id`),
-  CONSTRAINT `video_fk_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `video_fk_language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`en_translation`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `video_fk_status_id` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 --

@@ -10,19 +10,19 @@ method _build_language_rs {
   $self->_app->model('Schema::Language');
 }
 
+our $languages;
+
 method start : Chained('/global_start') PathPart('api') CaptureArgs(0) {}
 
   method languages($ctx)
   : Chained('start') Args(0)
   {
-    my @languages = map {
-      {
-        alpha2 =>$_->{code_alpha2},
-        en_translation => code2language($_->{code_alpha2}),
-      };
-    } $self->language_rs->hri->all;
+    $languages ||= {map {
+      $_->{code_alpha2},
+      { en_translation => code2language($_->{code_alpha2}) },
+    } $self->language_rs->hri->all};
 
-    $self->status_ok( $ctx, entity => \@languages);
+    $self->status_ok( $ctx, entity => $languages);
   }
 
 __PACKAGE__->meta->make_immutable;
