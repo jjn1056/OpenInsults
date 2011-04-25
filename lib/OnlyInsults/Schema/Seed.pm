@@ -3,14 +3,14 @@ package OnlyInsults::Schema::Seed;
 use Moose;
 use Locale::Language;
 
-has schema => (is=>'ro', requires=>1);
+has schema => (is=>'ro', required=>1);
 
-sub default_fixtures_to_always_install { qw/languages users/ }
+sub core_fixtures_to_always_install { qw/languages users/ }
 
 sub install {
   my ($self, @fixtures) = @_;
   $self->${\"_install_$_"}()
-    for ($self->fixtures_to_always_deploy, @fixtures);
+    for ($self->core_fixtures_to_always_install, @fixtures);
 }
 
 sub _install_languages {

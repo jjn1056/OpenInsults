@@ -1,8 +1,10 @@
 use DateTime;
 use Test::Most;
 use Test::DBIx::Class
-  -schema_class => 'Test::OnlyInsults::Schema',
+  -schema_class => 'OnlyInsults::Schema',
   qw(Video Contributor);
+
+Schema->seed->install;
 
 ok my $video = Video->create({
   title => 'test video',
@@ -18,4 +20,4 @@ ok my $contributor = Contributor->create({
   videos_contributor_rs => [{ video => $video }],
 });
 
-done_testing(2);
+done_testing;

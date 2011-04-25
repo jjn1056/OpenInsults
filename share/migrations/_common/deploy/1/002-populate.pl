@@ -27,10 +27,7 @@ sub {
   } else {
     print "Skipping fixture installation since you don't have them\n";
     print "Instead I will seed the database manually\n";
-
-    OnlyInsults::Schema::Seed
-      ->new(schema=>$schema)
-      ->install;
+    $schema->seed->install;
   }
 };
 
